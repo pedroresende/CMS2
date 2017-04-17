@@ -6,4 +6,9 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class CMS2BaseBundle extends Bundle
 {
+
+    public function getParent()
+    {
+        return 'EasyAdminBundle';
+    }
 }

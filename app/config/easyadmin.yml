@@ -8,6 +8,10 @@ easy_admin:
               children:
                 - { entity: 'BlogPost', icon: 'file-o', label: 'Blog Posts' }
                 - { entity: 'Page', icon: 'paper-plane', label: 'Pages' }
+            - label: 'Media'
+              icon: 'film'
+              children:
+                - { entity: 'File', icon: 'file', label: 'Files' }
             - label: 'Users'
               icon: 'users'
               children:
@@ -20,9 +24,17 @@ easy_admin:
                 - { entity: 'Language', icon: 'language', label: 'Languages' }
                 - { entity: 'Status', icon: 'check-circle-o', label: 'Status' }
                 - { entity: 'Alias', icon: 'share-alt', label: 'Url Alias' }
+        assets:
+            favicon: 'bundles/cms2base/img/favicon.ico'
+            css: 
+                - 'bundles/cms2base/css/custom.css'
     entities:
         - CMS2\BaseBundle\Entity\User
-        - CMS2\BaseBundle\Entity\Setting
+        - Setting:
+          class: CMS2\BaseBundle\Entity\Setting
+          disabled_actions: ['new']
+          list:
+              max_results: 1
         - BlogPost:
           class: CMS2\BaseBundle\Entity\BlogPost
           form:
@@ -37,8 +49,22 @@ easy_admin:
                   - section
                   - language
                   - status
-        - CMS2\BaseBundle\Entity\Page
+        - Page:
+          class: CMS2\BaseBundle\Entity\Page
+          form:
+              fields:
+                  - title
+                  - text
+                  - date
+                  - section
+                  - language
+                  - status
         - CMS2\BaseBundle\Entity\Section
         - CMS2\BaseBundle\Entity\Language
         - CMS2\BaseBundle\Entity\Status
         - CMS2\BaseBundle\Entity\Alias
+        - File:
+          class: CMS2\BaseBundle\Entity\File
+          controller: CMS2\BaseBundle\Controller\AdminController
+          show:
+              actions: ['newfile']
