@@ -76,3 +76,15 @@ fos_user:
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
+
+easy_admin:
+    site_name: 'DevBlog'
+    design:
+        menu:
+            - { label: 'Dashboard', icon: 'dashboard', url: 'http://example.com' }
+            - label: 'Users'
+              icon: 'users'
+              children:
+                - { entity: 'User', icon: 'user', label: 'Users' }
+    entities:
+        - CMS2\BaseBundle\Entity\User
