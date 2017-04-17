@@ -1,4 +1,21 @@
-symfony
-=======
+CMS2
+====
 
-A Symfony project created on April 13, 2017, 12:23 pm.
+# Install
+
+```
+$ composer install
+$ bin/console doctrine:schema:update
+```
+
+## Add an admin user
+
+```
+$ bin/console fos:user:create
+```
+
+### Promote the user to ROLE_ADMIN, in order to be able to access the admin interface
+
+```
+$ bin/console fos:user:promote
+```
