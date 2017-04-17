@@ -20,7 +20,9 @@ security:
                 # csrf_provider: form.csrf_provider
                 default_target_path:            /admin
 
-            logout:       true
+            logout:
+                path:   /logout
+                target: /login
             anonymous:    true
 
     access_control:
