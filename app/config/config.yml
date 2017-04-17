@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: easyadmin.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -76,16 +77,3 @@ fos_user:
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
-
-easy_admin:
-    site_name: 'DevBlog'
-    design:
-        menu:
-            - { label: 'Dashboard', icon: 'dashboard', url: 'http://example.com' }
-            - label: 'Users'
-              icon: 'users'
-              children:
-                - { entity: 'User', icon: 'user', label: 'Users' }
-            - { label: 'Setup', icon: 'cogs', url: 'http://example.com' }
-    entities:
-        - CMS2\BaseBundle\Entity\User

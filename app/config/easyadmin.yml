@@ -1,0 +1,44 @@
+easy_admin:
+    site_name: 'Development by Pedro Resende'
+    design:
+        menu:
+            - { label: 'Dashboard', icon: 'dashboard', url: 'http://example.com' }
+            - label: 'Content'
+              icon: 'columns'
+              children:
+                - { entity: 'BlogPost', icon: 'file-o', label: 'Blog Posts' }
+                - { entity: 'Page', icon: 'paper-plane', label: 'Pages' }
+            - label: 'Users'
+              icon: 'users'
+              children:
+                - { entity: 'User', icon: 'user', label: 'Users' }
+            - label: 'Setup'
+              icon: 'cogs'
+              children:
+                - { entity: 'Setting', icon: 'cog', label: 'Settings' }
+                - { entity: 'Section', icon: 'puzzle-piece', label: 'Sections' }
+                - { entity: 'Language', icon: 'language', label: 'Languages' }
+                - { entity: 'Status', icon: 'check-circle-o', label: 'Status' }
+                - { entity: 'Alias', icon: 'share-alt', label: 'Url Alias' }
+    entities:
+        - CMS2\BaseBundle\Entity\User
+        - CMS2\BaseBundle\Entity\Setting
+        - BlogPost:
+          class: CMS2\BaseBundle\Entity\BlogPost
+          form:
+              fields:
+                  - title
+                  - subtitle
+                  - author
+                  - text
+                  - date
+                  - tag
+                  - category
+                  - section
+                  - language
+                  - status
+        - CMS2\BaseBundle\Entity\Page
+        - CMS2\BaseBundle\Entity\Section
+        - CMS2\BaseBundle\Entity\Language
+        - CMS2\BaseBundle\Entity\Status
+        - CMS2\BaseBundle\Entity\Alias
