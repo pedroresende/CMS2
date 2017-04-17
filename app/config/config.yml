@@ -86,5 +86,6 @@ easy_admin:
               icon: 'users'
               children:
                 - { entity: 'User', icon: 'user', label: 'Users' }
+            - { label: 'Setup', icon: 'cogs', url: 'http://example.com' }
     entities:
         - CMS2\BaseBundle\Entity\User
