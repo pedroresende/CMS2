@@ -1,0 +1,3 @@
+cms2_override_fos_user_homepage:
+    path:     /
+    defaults: { _controller: CMS2OverrideFOSUserBundle:Default:index }
