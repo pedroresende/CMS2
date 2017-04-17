@@ -14,17 +14,7 @@ use Xvolutions\AdminBundle\Entity\File;
 class AdminController extends BaseAdminController
 {
 
-    /**
-     * Controller responsible to show the list of files and for handling the form
-     * submission and the database insertion
-     *
-     * @param string $option can be remove of removeselected
-     * @param integer $id of the file to be removed
-     * @param integer $current_page the actual page
-     * @param string $status if the removal or adition has been done correctly
-     * @param string $error if the removal or adition had errors
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
+/*
     public function indexAction(Request $request)
     {
         $files_location  = $this->container->getParameter('files_location');
@@ -32,9 +22,9 @@ class AdminController extends BaseAdminController
                 array(
                 'files_location' => $files_location
         ));
-    }
+    }*/
 
-    public function newfileAction(Request $request)
+    public function newfileAction()
     {
         $upload           = $this->get('file.uploader.helper');
         $folder           = $this->container->getParameter('uploaded_files');
