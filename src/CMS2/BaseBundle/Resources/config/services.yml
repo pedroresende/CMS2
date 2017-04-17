@@ -1,3 +1,3 @@
 services:
     file.uploader.helper:
-        class: CMS2\BaseBundle\Helpers\UploadHelper
+        class: CMS2\BaseBundle\Helper\UploadHelper

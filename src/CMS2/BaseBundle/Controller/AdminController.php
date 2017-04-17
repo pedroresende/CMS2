@@ -14,6 +14,10 @@ use Xvolutions\AdminBundle\Entity\File;
 class AdminController extends BaseAdminController
 {
 
+    public function indexAction(Request $request)
+    {
+        return parent::indexAction($request);
+    }
 /*
     public function indexAction(Request $request)
     {
@@ -24,7 +28,12 @@ class AdminController extends BaseAdminController
         ));
     }*/
 
-    public function newfileAction()
+    public function newAction()
+    {
+        return parent::newAction();
+    }
+/*
+    public function newfileAction($request)
     {
         $upload           = $this->get('file.uploader.helper');
         $folder           = $this->container->getParameter('uploaded_files');
@@ -59,5 +68,5 @@ class AdminController extends BaseAdminController
             $error = "Impossível enviar o ficheiro";
             return new Response($error, Response::HTTP_NOT_ACCEPTABLE);
         }
-    }
+    }*/
 }

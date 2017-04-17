@@ -1,6 +1,6 @@
 <?php
 
-namespace CMS2\BaseBundle\Helpers;
+namespace CMS2\BaseBundle\Helper;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;

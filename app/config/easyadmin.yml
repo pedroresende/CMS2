@@ -26,7 +26,7 @@ easy_admin:
                 - { entity: 'Alias', icon: 'share-alt', label: 'Url Alias' }
         assets:
             favicon: 'bundles/cms2base/img/favicon.ico'
-            css: 
+            css:
                 - 'bundles/cms2base/css/custom.css'
     entities:
         - CMS2\BaseBundle\Entity\User
@@ -66,5 +66,5 @@ easy_admin:
         - File:
           class: CMS2\BaseBundle\Entity\File
           controller: CMS2\BaseBundle\Controller\AdminController
-          show:
-              actions: ['newfile']
+          #show:
+        #      actions: ['newfile']
