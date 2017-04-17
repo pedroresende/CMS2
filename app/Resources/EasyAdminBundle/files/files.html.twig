@@ -1,0 +1,7 @@
+{% extends "EasyAdminBundle:default:layout.html.twig" %}
+
+{% block page_title %}Gestor de Ficheiros - Backoffice{% endblock %}
+
+{% block entity_form %}
+    <form id="my-awesome-dropzone" action="{{path('newfile')}}" class="dropzone"></form>
+{% endblock %}
