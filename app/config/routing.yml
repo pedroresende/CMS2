@@ -4,7 +4,7 @@ easy_admin_bundle:
     prefix:   /admin
 
 cms2_base:
-    resource: "@CMS2BaseBundle/Resources/config/routing.xml"
+    resource: "@CMS2BaseBundle/Resources/config/routing.yml"
     prefix:   /
 
 fos_user:
