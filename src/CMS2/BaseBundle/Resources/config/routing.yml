@@ -1,3 +1,8 @@
+dashboard:
+    path: admin/dashboard
+    defaults: { _controller: CMS2BaseBundle:Dashboard:index }
+    methods:  [GET]
+
 newfile:
     path: admin/fileUpload
     defaults: { _controller: CMS2BaseBundle:File:newFile }

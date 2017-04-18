@@ -6,7 +6,7 @@ easy_admin:
     site_name: 'Development by Pedro Resende'
     design:
         menu:
-            - { label: 'Dashboard', icon: 'dashboard', url: 'http://example.com' }
+            - { label: 'Dashboard', icon: 'dashboard', route: 'dashboard' }
             - label: 'Content'
               icon: 'columns'
               children:
