@@ -28,6 +28,8 @@ easy_admin:
             favicon: 'bundles/cms2base/img/favicon.ico'
             css:
                 - 'bundles/cms2base/css/custom.css'
+            js:
+                - 'bundles/cms2base/js/dropzone.min.js'
     entities:
         - Setting:
           class: CMS2\BaseBundle\Entity\Setting
@@ -65,6 +67,4 @@ easy_admin:
         - CMS2\BaseBundle\Entity\User
         - File:
           class: CMS2\BaseBundle\Entity\File
-          controller: CMS2\BaseBundle\Controller\AdminController
-          #show:
-        #      actions: ['newfile']
+          disabled_actions: ['new']

@@ -3,37 +3,16 @@
 namespace CMS2\BaseBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Debug\ErrorHandler;
-use Xvolutions\AdminBundle\Helpers\Upload;
-use Xvolutions\AdminBundle\Entity\File;
+//use CMS2\BaseBundle\Helpers\Upload;
+use CMS2\BaseBundle\Entity\File;
 
-class AdminController extends BaseAdminController
+class FileController extends Controller
 {
 
-    public function indexAction(Request $request)
-    {
-        return parent::indexAction($request);
-    }
-/*
-    public function indexAction(Request $request)
-    {
-        $files_location  = $this->container->getParameter('files_location');
-        return $this->render('CMS2BaseBundle:files:files.html.twig',
-                array(
-                'files_location' => $files_location
-        ));
-    }*/
-
-    public function newAction()
-    {
-        return parent::newAction();
-    }
-/*
-    public function newfileAction($request)
+    public function newfileAction(Request $request)
     {
         $upload           = $this->get('file.uploader.helper');
         $folder           = $this->container->getParameter('uploaded_files');
@@ -68,5 +47,5 @@ class AdminController extends BaseAdminController
             $error = "Impossível enviar o ficheiro";
             return new Response($error, Response::HTTP_NOT_ACCEPTABLE);
         }
-    }*/
+    }
 }

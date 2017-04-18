@@ -1,1 +1,4 @@
-
+newfile:
+    path: admin/fileUpload
+    defaults: { _controller: CMS2BaseBundle:File:newFile }
+    methods:  [POST]

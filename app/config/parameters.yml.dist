@@ -15,7 +15,7 @@ parameters:
     mailer_user: ~
     mailer_password: ~
     mailer_user: ~
-    uploaded_files: %kernel.root_dir%/../public_html/files
+    uploaded_files: %kernel.root_dir%/../web/files
     files_location: /files/
 
     # A secret key that's used to generate certain security-related tokens
