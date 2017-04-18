@@ -25,9 +25,10 @@ easy_admin:
                 - { entity: 'Status', icon: 'check-circle-o', label: 'Status' }
                 - { entity: 'Alias', icon: 'share-alt', label: 'Url Alias' }
         assets:
-            favicon: 'bundles/cms2base/img/favicon.ico'
+            favicon: 'bundles/cms2base/images/favicon.ico'
             css:
                 - 'bundles/cms2base/css/custom.css'
+                - 'bundles/cms2base/css/dropzone.css'
             js:
                 - 'bundles/cms2base/js/dropzone.min.js'
     entities:
@@ -67,4 +68,4 @@ easy_admin:
         - CMS2\BaseBundle\Entity\User
         - File:
           class: CMS2\BaseBundle\Entity\File
-          disabled_actions: ['new']
+          disabled_actions: ['new', 'edit']
