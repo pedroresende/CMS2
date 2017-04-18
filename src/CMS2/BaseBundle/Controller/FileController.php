@@ -6,14 +6,50 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Debug\ErrorHandler;
-//use CMS2\BaseBundle\Helpers\Upload;
 use CMS2\BaseBundle\Entity\File;
 
 class FileController extends Controller
 {
 
+    /**
+     * Controller responsible to return the list of images uploaded to the database
+     * to be used by TinyMCE
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function imageListAction()
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
+
+        $imageTypes = array('gif', 'jpeg', 'png', 'tiff', 'bmp');
+        $files      = $this->getDoctrine()->getRepository('CMS2BaseBundle:File')->findAll();
+        $folder     = $this->container->getParameter('files_location');
+
+        $arrayOfFiles = array();
+        foreach ($files as $file) {
+            $type = $file->getType();
+            if (in_array($type, $imageTypes)) {
+                $tempArray = ['title' => $file->getName(), 'value' => $folder.$file->getFileName()];
+                array_push($arrayOfFiles, $tempArray);
+            }
+        }
+
+        $jsonResponse = json_encode($arrayOfFiles);
+
+        return new Response($jsonResponse, '200');
+    }
+
+    /**
+     * Controller responsible to add a new file
+     *
+     * @param Request $request The request to be processed
+     * @param type $current_page the actual page
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function newfileAction(Request $request)
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
+
         $upload           = $this->get('file.uploader.helper');
         $folder           = $this->container->getParameter('uploaded_files');
         $fileName         = null;

@@ -104,4 +104,18 @@ class Alias
     {
         return $this->url;
     }
+
+    /**
+     * This method will return the Space of the url alias, if page or Blog post
+     *
+     * @return string
+     */
+    public function getSpace()
+    {
+        if ($this->getId() == self::page) {
+            return 'Page';
+        } else {
+            return 'Blog Post';
+        }
+    }
 }
