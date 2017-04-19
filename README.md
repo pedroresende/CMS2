@@ -5,8 +5,15 @@ CMS2
 
 ```
 $ composer install
-$ bin/console doctrine:schema:update
+$ bin/console doctrine:schema:create
 ```
+
+## Add base database 
+
+```
+$ bin/console doctrine:migrations:migrate
+```
+
 
 ## Add an admin user
 
