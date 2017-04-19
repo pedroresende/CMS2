@@ -40,8 +40,9 @@ easy_admin:
     entities:
         - Setting:
           class: CMS2\BaseBundle\Entity\Setting
-          disabled_actions: ['new']
+          disabled_actions: ['new', 'delete', 'search']
           list:
+              title: Settings
               max_results: 1
         - BlogPost:
           class: CMS2\BaseBundle\Entity\BlogPost

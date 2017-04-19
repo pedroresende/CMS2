@@ -9,3 +9,4 @@ cms2_base:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix:     /admin

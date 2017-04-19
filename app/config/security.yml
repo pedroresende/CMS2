@@ -19,14 +19,17 @@ security:
                 # if you are using Symfony < 2.8, use the following config instead:
                 # csrf_provider: form.csrf_provider
                 default_target_path:            /admin/dashboard
+                login_path: fos_user_security_login
+                failure_path: fos_user_security_login
+                check_path: fos_user_security_check
 
             logout:
-                path:   /logout
-                target: /login
+                path:   fos_user_security_logout
+                target: fos_user_security_login
             anonymous:    true
 
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: ROLE_ADMIN }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: ^/admin/register, role: ROLE_ADMIN }
+        - { path: ^/admin/resetting$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
