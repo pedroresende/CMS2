@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new CMS2\BaseBundle\CMS2BaseBundle(),
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
