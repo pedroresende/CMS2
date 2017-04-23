@@ -26,3 +26,7 @@ $ bin/console fos:user:create
 ```
 $ bin/console fos:user:promote
 ```
+
+# Rest Api documentation
+
+Access to /api/doc
