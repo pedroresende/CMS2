@@ -3,6 +3,7 @@
 namespace CMS2\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Setting
@@ -18,6 +19,7 @@ class Setting
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"settings"})
      */
     private $id;
 
@@ -25,6 +27,7 @@ class Setting
      * @var string
      *
      * @ORM\Column(name="sitename", type="string", length=255, nullable=true)
+     * @Groups({"settings"})
      */
     private $sitename;
 
@@ -32,6 +35,7 @@ class Setting
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=155, nullable=true)
+     * @Groups({"settings"})
      */
     private $description;
 
@@ -39,6 +43,7 @@ class Setting
      * @var string
      *
      * @ORM\Column(name="keywords", type="string", length=255, nullable=true)
+     * @Groups({"settings"})
      */
     private $keywords;
 
@@ -46,6 +51,7 @@ class Setting
      * @var string
      *
      * @ORM\Column(name="author", type="string", length=255, nullable=true)
+     * @Groups({"settings"})
      */
     private $author;
 
@@ -53,6 +59,7 @@ class Setting
      * @var boolean
      *
      * @ORM\Column(name="blog", type="boolean", nullable=true)
+     * @Groups({"settings"})
      */
     private $blog;
 

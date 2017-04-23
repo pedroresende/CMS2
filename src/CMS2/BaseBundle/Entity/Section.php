@@ -3,6 +3,7 @@
 namespace CMS2\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Section
@@ -18,6 +19,7 @@ class Section
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"section"})
      */
     private $id;
 
@@ -25,6 +27,7 @@ class Section
      * @var string
      *
      * @ORM\Column(name="Section", type="string", unique=true, length=255)
+     * @Groups({"section"})
      */
     protected $section;
 

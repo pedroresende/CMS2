@@ -3,6 +3,7 @@
 namespace CMS2\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Language
@@ -18,6 +19,7 @@ class Language
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"language"})
      */
     private $id;
 
@@ -25,6 +27,7 @@ class Language
      * @var string
      *
      * @ORM\Column(name="language", type="string", unique=true, length=255)
+     * @Groups({"language"})
      */
     protected $language;
 
@@ -32,6 +35,7 @@ class Language
      * @var string
      *
      * @ORM\Column(name="code", type="string", unique=true, length=5)
+     * @Groups({"language"})
      */
     private $code;
 

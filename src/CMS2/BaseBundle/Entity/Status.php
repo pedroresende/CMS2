@@ -3,6 +3,7 @@
 namespace CMS2\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Status
@@ -18,6 +19,7 @@ class Status
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"status"})
      */
     private $id;
 
@@ -25,6 +27,7 @@ class Status
      * @var string
      *
      * @ORM\Column(name="status", type="string", length=255)
+     * @Groups({"status"})
      */
     private $status;
 
