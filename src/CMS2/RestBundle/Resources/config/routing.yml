@@ -16,8 +16,20 @@ files:
     resource: CMS2\RestBundle\Controller\FilesController
     name_prefix:  file_
 
+languages:
+    type:     rest
+    prefix: language
+    resource: CMS2\RestBundle\Controller\LanguagesController
+    name_prefix:  language_
+
 pages:
     type:     rest
     prefix: page
     resource: CMS2\RestBundle\Controller\PagesController
     name_prefix:  page_
+
+sections:
+    type:     rest
+    prefix: section
+    resource: CMS2\RestBundle\Controller\SectionsController
+    name_prefix:  section_
