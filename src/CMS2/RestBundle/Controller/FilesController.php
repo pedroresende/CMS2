@@ -27,7 +27,7 @@ class FilesController extends Controller {
     /**
     * @ApiDoc(
     *  description="Returns a file by it's name",
-    *  parameters={
+    *  requirements={
     *      {
     *          "name"="name",
     *          "dataType"="string",
@@ -56,7 +56,7 @@ class FilesController extends Controller {
     /**
      * @ApiDoc(
      *  description="Returns a file info by Id",
-     *  parameters={
+     *  requirements={
      *      {
      *          "name"="id",
      *          "dataType"="integer",
