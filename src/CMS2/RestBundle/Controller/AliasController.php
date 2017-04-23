@@ -26,21 +26,25 @@ class AliasController extends Controller {
 
     /**
      * @ApiDoc(
-     *  description="Returns a alias by Id",
+     *  description="Returns all the alias, or the the only one with the given id",
      *  requirements={
      *      {
      *          "name"="id",
      *          "dataType"="integer",
      *          "requirement"="\d+",
-     *          "required"=true,
+     *          "required"=false,
      *          "description"="Id of the alias to return"
      *      }
      *  }
      * )
-     * @Get("/{id}")
+     * @Get("/{id}", defaults={"id" = null})
      */
     public function getAction($id) {
-        $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->find($id);
+        if ($id == "{id}") {
+            $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->findAll();
+        } else {
+            $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->find($id);
+        }
 
         $response = new Response();
         if (!empty($alias)) {
@@ -71,28 +75,6 @@ class AliasController extends Controller {
      */
     public function getUrlAction($slug) {
         $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->findOneByUrl($slug);
-
-        $response = new Response();
-        if (!empty($alias)) {
-            $serializer = $this->get('serializer');
-            $json = $serializer->serialize($alias, 'json', array('groups' => array('alias')));
-
-            $response->setContent($json);
-        } else {
-            $response->setStatusCode(Response::HTTP_NOT_FOUND);
-        }
-
-        return $response;
-    }
-
-    /**
-     * @ApiDoc(
-     *  description="Returns the list of Alias",
-     * )
-     * @Get("")
-     */
-    public function getAllAction() {
-        $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->findAll();
 
         $response = new Response();
         if (!empty($alias)) {
