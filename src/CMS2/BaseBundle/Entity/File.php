@@ -3,6 +3,7 @@
 namespace CMS2\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * File
@@ -18,6 +19,7 @@ class File
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"file"})
      */
     private $id;
 
@@ -25,6 +27,7 @@ class File
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Groups({"file"})
      */
     private $name;
 
@@ -32,6 +35,7 @@ class File
      * @var string
      *
      * @ORM\Column(name="file_name", type="string", length=255)
+     * @Groups({"file"})
      */
     private $fileName;
 
@@ -39,6 +43,7 @@ class File
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=255)
+     * @Groups({"file"})
      */
     private $type;
 
@@ -46,6 +51,7 @@ class File
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Groups({"file"})
      */
     private $date;
 
@@ -53,6 +59,7 @@ class File
      * @var integer
      *
      * @ORM\Column(name="size", type="integer")
+     * @Groups({"file"})
      */
     private $size;
 
