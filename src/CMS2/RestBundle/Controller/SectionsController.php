@@ -28,7 +28,7 @@ class SectionsController extends Controller {
     /**
      * @ApiDoc(
      *  description="Returns all the sections, or the the only one with the given id",
-     *  requirements={
+     *  parameters={
      *      {
      *          "name"="id",
      *          "dataType"="integer",

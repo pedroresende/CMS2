@@ -27,7 +27,7 @@ class PagesController extends Controller {
     /**
      * @ApiDoc(
      *  description="Returns all the pages, or the the only one with the given id",
-     *  requirements={
+     *  parameters={
      *      {
      *          "name"="id",
      *          "dataType"="integer",

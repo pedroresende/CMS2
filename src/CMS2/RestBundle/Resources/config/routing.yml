@@ -33,3 +33,9 @@ sections:
     prefix: section
     resource: CMS2\RestBundle\Controller\SectionsController
     name_prefix:  section_
+
+status:
+    type:     rest
+    prefix: status
+    resource: CMS2\RestBundle\Controller\StatusController
+    name_prefix:  status_

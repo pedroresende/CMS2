@@ -7,8 +7,9 @@ use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use FOS\RestBundle\Controller\Annotations\Route;
 
-class BlogPostsController extends Controller {
+class StatusController extends Controller {
 
     /**
      * @ApiDoc(
@@ -26,14 +27,14 @@ class BlogPostsController extends Controller {
 
     /**
      * @ApiDoc(
-     *  description="Returns all the blog posts, or the the only one with the given id",
+     *  description="Returns all the status, or the the only one with the given id",
      *  parameters={
      *      {
      *          "name"="id",
      *          "dataType"="integer",
      *          "requirement"="\d+",
      *          "required"=false,
-     *          "description"="Id of the blogpost to return"
+     *          "description"="Id of the status to return"
      *      }
      *  }
      * )
@@ -41,15 +42,15 @@ class BlogPostsController extends Controller {
      */
     public function getAction($id) {
         if ($id == "{id}") {
-            $blogPost = $this->getDoctrine()->getRepository('CMS2BaseBundle:BlogPost')->findAll();
+            $status = $this->getDoctrine()->getRepository('CMS2BaseBundle:Status')->findAll();
         } else {
-            $blogPost = $this->getDoctrine()->getRepository('CMS2BaseBundle:BlogPost')->find($id);
+            $status = $this->getDoctrine()->getRepository('CMS2BaseBundle:Status')->find($id);
         }
 
         $response = new Response();
-        if (!empty($blogPost)) {
+        if (!empty($status)) {
             $serializer = $this->get('serializer');
-            $json = $serializer->serialize($blogPost, 'json', array('groups' => array('blogpost')));
+            $json = $serializer->serialize($status, 'json', array('groups' => array('status')));
 
             $response->setContent($json);
         } else {

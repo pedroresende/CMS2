@@ -28,7 +28,7 @@ class LanguagesController extends Controller {
     /**
      * @ApiDoc(
      *  description="Returns all the languages, or the the only one with the given id",
-     *  requirements={
+     *  parameters={
      *      {
      *          "name"="id",
      *          "dataType"="integer",
