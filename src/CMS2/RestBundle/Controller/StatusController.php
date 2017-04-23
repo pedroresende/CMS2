@@ -28,17 +28,17 @@ class StatusController extends Controller {
     /**
      * @ApiDoc(
      *  description="Returns all the status, or the the only one with the given id",
-     *  parameters={
+     *  requirements={
      *      {
      *          "name"="id",
      *          "dataType"="integer",
      *          "requirement"="\d+",
-     *          "required"=false,
+     *          "required"=true,
      *          "description"="Id of the status to return"
      *      }
      *  }
      * )
-     * @Get("/{id}", defaults={"id" = null})
+     * @Get("/{id}")
      */
     public function getAction($id) {
         if ($id == "{id}") {
@@ -60,4 +60,25 @@ class StatusController extends Controller {
         return $response;
     }
 
+    /**
+     * @ApiDoc(
+     *  description="Returns the list of Status",
+     * )
+     * @Get("")
+     */
+    public function getAllAction() {
+        $status = $this->getDoctrine()->getRepository('CMS2BaseBundle:Status')->findAll();
+
+        $response = new Response();
+        if (!empty($status)) {
+            $serializer = $this->get('serializer');
+            $json = $serializer->serialize($status, 'json', array('groups' => array('status')));
+
+            $response->setContent($json);
+        } else {
+            $response->setStatusCode(Response::HTTP_NOT_FOUND);
+        }
+
+        return $response;
+    }
 }

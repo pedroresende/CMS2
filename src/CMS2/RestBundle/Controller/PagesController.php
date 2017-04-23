@@ -26,30 +26,48 @@ class PagesController extends Controller {
 
     /**
      * @ApiDoc(
-     *  description="Returns all the pages, or the the only one with the given id",
-     *  parameters={
+     *  description="Returns a page by Id",
+     *  requirements={
      *      {
      *          "name"="id",
      *          "dataType"="integer",
      *          "requirement"="\d+",
-     *          "required"=false,
+     *          "required"=true,
      *          "description"="Id of the page to return"
      *      }
      *  }
      * )
-     * @Get("/{id}", defaults={"id" = null})
+     * @Get("/{id}")
      */
     public function getAction($id) {
-        if ($id == "{id}") {
-            $page = $this->getDoctrine()->getRepository('CMS2BaseBundle:Page')->findAll($id);
-        } else {
-            $page = $this->getDoctrine()->getRepository('CMS2BaseBundle:Page')->find($id);
-        }
+        $page = $this->getDoctrine()->getRepository('CMS2BaseBundle:Page')->find($id);
 
         $response = new Response();
         if (!empty($page)) {
             $serializer = $this->get('serializer');
             $json = $serializer->serialize($page, 'json', array('groups' => array('page')));
+
+            $response->setContent($json);
+        } else {
+            $response->setStatusCode(Response::HTTP_NOT_FOUND);
+        }
+
+        return $response;
+    }
+
+    /**
+     * @ApiDoc(
+     *  description="Returns the list of Pages",
+     * )
+     * @Get("")
+     */
+    public function getAllAction() {
+        $pages = $this->getDoctrine()->getRepository('CMS2BaseBundle:Page')->findAll();
+
+        $response = new Response();
+        if (!empty($pages)) {
+            $serializer = $this->get('serializer');
+            $json = $serializer->serialize($pages, 'json', array('groups' => array('page')));
 
             $response->setContent($json);
         } else {

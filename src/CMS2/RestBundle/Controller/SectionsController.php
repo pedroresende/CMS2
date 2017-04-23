@@ -28,17 +28,17 @@ class SectionsController extends Controller {
     /**
      * @ApiDoc(
      *  description="Returns all the sections, or the the only one with the given id",
-     *  parameters={
+     *  requirements={
      *      {
      *          "name"="id",
      *          "dataType"="integer",
      *          "requirement"="\d+",
-     *          "required"=false,
+     *          "required"=true,
      *          "description"="Id of the section to return"
      *      }
      *  }
      * )
-     * @Get("/{id}", defaults={"id" = null})
+     * @Get("/{id}")
      */
     public function getAction($id) {
         if ($id == "{id}") {
@@ -51,6 +51,28 @@ class SectionsController extends Controller {
         if (!empty($section)) {
             $serializer = $this->get('serializer');
             $json = $serializer->serialize($section, 'json', array('groups' => array('section')));
+
+            $response->setContent($json);
+        } else {
+            $response->setStatusCode(Response::HTTP_NOT_FOUND);
+        }
+
+        return $response;
+    }
+
+    /**
+     * @ApiDoc(
+     *  description="Returns the list of Sections",
+     * )
+     * @Get("")
+     */
+    public function getAllAction() {
+        $sections = $this->getDoctrine()->getRepository('CMS2BaseBundle:Section')->findAll();
+
+        $response = new Response();
+        if (!empty($sections)) {
+            $serializer = $this->get('serializer');
+            $json = $serializer->serialize($sections, 'json', array('groups' => array('section')));
 
             $response->setContent($json);
         } else {

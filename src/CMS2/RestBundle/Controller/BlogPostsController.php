@@ -3,6 +3,7 @@
 namespace CMS2\RestBundle\Controller;
 
 use FOS\RestBundle\Controller\Annotations\Get;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,25 +27,21 @@ class BlogPostsController extends Controller {
 
     /**
      * @ApiDoc(
-     *  description="Returns all the blog posts, or the the only one with the given id",
-     *  parameters={
+     *  description="Returns a blogpost by Id",
+     *  requirements={
      *      {
      *          "name"="id",
      *          "dataType"="integer",
      *          "requirement"="\d+",
-     *          "required"=false,
+     *          "required"=true,
      *          "description"="Id of the blogpost to return"
      *      }
      *  }
      * )
-     * @Get("/{id}", defaults={"id" = null})
+     * @Get("/{id}")
      */
     public function getAction($id) {
-        if ($id == "{id}") {
-            $blogPost = $this->getDoctrine()->getRepository('CMS2BaseBundle:BlogPost')->findAll();
-        } else {
-            $blogPost = $this->getDoctrine()->getRepository('CMS2BaseBundle:BlogPost')->find($id);
-        }
+        $blogPost = $this->getDoctrine()->getRepository('CMS2BaseBundle:BlogPost')->find($id);
 
         $response = new Response();
         if (!empty($blogPost)) {
@@ -59,4 +56,25 @@ class BlogPostsController extends Controller {
         return $response;
     }
 
+    /**
+     * @ApiDoc(
+     *  description="Returns the list of BlogPosts",
+     * )
+     * @Get("")
+     */
+    public function getBlogPostsAction($offset = 0, $limit = 10) {
+        $blogPosts = $this->getDoctrine()->getRepository('CMS2BaseBundle:BlogPost')->findBy([], null, $limit, $offset);
+
+        $response = new Response();
+        if (!empty($blogPosts)) {
+            $serializer = $this->get('serializer');
+            $json = $serializer->serialize($blogPosts, 'json', array('groups' => array('blogpost')));
+
+            $response->setContent($json);
+        } else {
+            $response->setStatusCode(Response::HTTP_NOT_FOUND);
+        }
+
+        return $response;
+    }
 }

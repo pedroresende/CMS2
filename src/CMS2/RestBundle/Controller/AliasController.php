@@ -26,25 +26,53 @@ class AliasController extends Controller {
 
     /**
      * @ApiDoc(
-     *  description="Returns all the alias, or the the only one with the given id",
-     *  parameters={
+     *  description="Returns a alias by Id",
+     *  requirements={
      *      {
      *          "name"="id",
      *          "dataType"="integer",
      *          "requirement"="\d+",
-     *          "required"=false,
+     *          "required"=true,
      *          "description"="Id of the alias to return"
      *      }
      *  }
      * )
-     * @Get("/{id}", defaults={"id" = null})
+     * @Get("/{id}")
      */
     public function getAction($id) {
-        if ($id == "{id}") {
-            $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->findAll();
+        $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->find($id);
+
+        $response = new Response();
+        if (!empty($alias)) {
+            $serializer = $this->get('serializer');
+            $json = $serializer->serialize($alias, 'json', array('groups' => array('alias')));
+
+            $response->setContent($json);
         } else {
-            $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->find($id);
+            $response->setStatusCode(Response::HTTP_NOT_FOUND);
         }
+
+        return $response;
+    }
+
+    /**
+     * Returns a alias by url
+     * 
+     * @ApiDoc(
+     *  description="Returns a alias by url",
+     *  requirements={
+     *      {
+     *          "name"="slug",
+     *          "dataType"="string",
+     *          "requirement"="",
+     *          "required"=true,
+     *          "description"="The Url of the alias to return"
+     *      }
+     *  }
+     * )
+     */
+    public function getUrlAction($slug) {
+        $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->findOneByUrl($slug);
 
         $response = new Response();
         if (!empty($alias)) {
@@ -61,20 +89,12 @@ class AliasController extends Controller {
 
     /**
      * @ApiDoc(
-     *  description="Returns a alias by url",
-     *  requirements={
-     *      {
-     *          "name"="slug",
-     *          "dataType"="string",
-     *          "requirement"="",
-     *          "required"=true,
-     *          "description"="The Url of the alias to return"
-     *      }
-     *  }
+     *  description="Returns the list of Alias",
      * )
+     * @Get("")
      */
-    public function getUrlAction($slug) {
-        $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->findOneByUrl($slug);
+    public function getAllAction() {
+        $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->findAll();
 
         $response = new Response();
         if (!empty($alias)) {
