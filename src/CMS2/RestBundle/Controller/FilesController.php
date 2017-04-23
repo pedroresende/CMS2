@@ -2,6 +2,7 @@
 
 namespace CMS2\RestBundle\Controller;
 
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -9,6 +10,12 @@ use FOS\RestBundle\Controller\Annotations\Route;
 
 class FilesController extends Controller {
 
+    /**
+     * @ApiDoc(
+     *  description="Returns the available REST verbs"
+     * )
+     * 
+     */
     public function optionsAction() {
         $response = new Response();
 
@@ -18,6 +25,18 @@ class FilesController extends Controller {
     }
 
     /**
+    * @ApiDoc(
+    *  description="Returns a file by it's name",
+    *  requirements={
+    *      {
+    *          "name"="name",
+    *          "dataType"="string",
+    *          "requirement"="",
+    *          "required"=true,
+    *          "description"="Name of the file to be returned"
+    *      }
+    *  }
+    * )
     * @Route(options={"segment_separators"={0="/"}})
     */
     public function getAction($name) {
@@ -34,6 +53,20 @@ class FilesController extends Controller {
         return $response;
     }
 
+    /**
+     * @ApiDoc(
+     *  description="Returns a file info by Id",
+     *  requirements={
+     *      {
+     *          "name"="id",
+     *          "dataType"="integer",
+     *          "requirement"="\d+",
+     *          "required"=true,
+     *          "description"="Id of the file Info to return"
+     *      }
+     *  }
+     * )
+     */
     public function getInfoAction($id) {
         $file = $this->getDoctrine()->getRepository('CMS2BaseBundle:File')->find($id);
 
