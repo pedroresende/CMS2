@@ -4,7 +4,7 @@ namespace CMS2\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use CMS2\BaseBundle\Entity\AliasHelper;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Page
@@ -12,14 +12,15 @@ use CMS2\BaseBundle\Entity\AliasHelper;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Page extends AliasHelper
-{
+class Page {
+
     /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"page"})
      */
     private $id;
 
@@ -27,6 +28,7 @@ class Page extends AliasHelper
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Groups({"page"})
      */
     private $title;
 
@@ -34,6 +36,7 @@ class Page extends AliasHelper
      * @var string
      *
      * @ORM\Column(name="text", type="text", nullable=true)
+     * @Groups({"page"})
      */
     private $text;
 
@@ -41,39 +44,65 @@ class Page extends AliasHelper
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Groups({"page"})
      */
     private $date;
 
     /**
      * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Section")
+     * @ORM\ManyToOne(targetEntity="Section", fetch="EAGER")
      */
     private $section;
 
     /**
+     *
+     * @Groups({"page"})
+     */
+    private $sectionId;
+
+    /**
      * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Language")
+     * @ORM\ManyToOne(targetEntity="Language", fetch="EAGER")
      */
     private $language;
 
     /**
-     * @var integer
-     *
-     * @ORM\ManyToOne(targetEntity="Status")
+     * @var type 
+     * @Groups({"page"})
      */
-    private $status;
+    private $languageId;
 
     /**
      * @var integer
      *
-     * @ORM\OneToOne(targetEntity="Alias",cascade={"all"})
+     * @ORM\ManyToOne(targetEntity="Status", fetch="EAGER")
+
+     */
+    private $status;
+
+    /**
+     * @var type 
+     * @Groups({"page"})
+     */
+    private $statusId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\OneToOne(targetEntity="Alias", inversedBy="page", cascade={"all"}, fetch="EAGER")
+     * @ORM\JoinColumn(name="alias_id", referencedColumnName="id")
      */
     private $alias;
 
-    public function __construct()
-    {
+    /**
+     * @var type 
+     * @Groups({"page"})
+     */
+    private $aliasId;
+
+    public function __construct() {
         $this->language = new ArrayCollection();
         $this->section = new ArrayCollection();
         $this->status = new ArrayCollection();
@@ -85,8 +114,7 @@ class Page extends AliasHelper
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -96,8 +124,7 @@ class Page extends AliasHelper
      * @param string $title
      * @return Page
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
 
         return $this;
@@ -108,8 +135,7 @@ class Page extends AliasHelper
      *
      * @return string 
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -119,8 +145,7 @@ class Page extends AliasHelper
      * @param string $text
      * @return Page
      */
-    public function setText($text)
-    {
+    public function setText($text) {
         $this->text = $text;
 
         return $this;
@@ -131,8 +156,7 @@ class Page extends AliasHelper
      *
      * @return string 
      */
-    public function getText()
-    {
+    public function getText() {
         return $this->text;
     }
 
@@ -142,8 +166,7 @@ class Page extends AliasHelper
      * @param \DateTime $date
      * @return Page
      */
-    public function setDate($date)
-    {
+    public function setDate($date) {
         $this->date = $date;
 
         return $this;
@@ -154,8 +177,7 @@ class Page extends AliasHelper
      *
      * @return \DateTime 
      */
-    public function getDate()
-    {
+    public function getDate() {
         return $this->date;
     }
 
@@ -164,8 +186,7 @@ class Page extends AliasHelper
      *
      * @return Section
      */
-    public function getSection()
-    {
+    public function getSection() {
         return $this->section;
     }
 
@@ -175,11 +196,19 @@ class Page extends AliasHelper
      * @param integer section
      * @return Section
      */
-    public function setSection($section)
-    {
+    public function setSection($section) {
         $this->section = $section;
 
         return $this;
+    }
+
+    /**
+     * Get sectionName
+     *
+     * @return SectionName
+     */
+    public function getSectionId() {
+        return $this->getSection()->getId();
     }
 
     /**
@@ -187,8 +216,7 @@ class Page extends AliasHelper
      *
      * @return Language
      */
-    public function getLanguage()
-    {
+    public function getLanguage() {
         return $this->language;
     }
 
@@ -198,11 +226,19 @@ class Page extends AliasHelper
      * @param integer language
      * @return Page's Language
      */
-    public function setLanguage($language)
-    {
+    public function setLanguage($language) {
         $this->language = $language;
 
         return $this;
+    }
+
+    /**
+     * Get languageName
+     *
+     * @return LanguageName
+     */
+    public function getLanguageId() {
+        return $this->getLanguage()->getId();
     }
 
     /**
@@ -210,8 +246,7 @@ class Page extends AliasHelper
      *
      * @return Alias
      */
-    public function getAlias()
-    {
+    public function getAlias() {
         return $this->alias;
     }
 
@@ -221,11 +256,19 @@ class Page extends AliasHelper
      * @param integer alias
      * @return Page's Alias
      */
-    public function setAlias($alias)
-    {
+    public function setAlias($alias) {
         $this->alias = $alias;
 
         return $this;
+    }
+
+    /**
+     * Get aliasUrl
+     *
+     * @return AliasUrl
+     */
+    public function getAliasId() {
+        return $this->getAlias()->getId();
     }
 
     /**
@@ -233,8 +276,7 @@ class Page extends AliasHelper
      *
      * @return Status
      */
-    public function getStatus()
-    {
+    public function getStatus() {
         return $this->status;
     }
 
@@ -244,10 +286,18 @@ class Page extends AliasHelper
      * @param integer status
      * @return Page's Status
      */
-    public function setStatus($status)
-    {
+    public function setStatus($status) {
         $this->status = $status;
 
         return $this;
+    }
+
+    /**
+     * Get statusName
+     *
+     * @return StatusName
+     */
+    public function getStatusId() {
+        return $this->getStatus()->getId();
     }
 }
