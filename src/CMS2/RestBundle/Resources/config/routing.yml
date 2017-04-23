@@ -1,0 +1,23 @@
+alias:
+    type:     rest
+    prefix: alias
+    resource: CMS2\RestBundle\Controller\AliasController
+    name_prefix:  alias_
+
+blogposts:
+    type:     rest
+    prefix: blogpost
+    resource: CMS2\RestBundle\Controller\BlogPostsController
+    name_prefix:  blogpost_
+
+files:
+    type:     rest
+    prefix: file
+    resource: CMS2\RestBundle\Controller\FilesController
+    name_prefix:  file_
+
+pages:
+    type:     rest
+    prefix: page
+    resource: CMS2\RestBundle\Controller\PagesController
+    name_prefix:  page_

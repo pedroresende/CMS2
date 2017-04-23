@@ -3,10 +3,15 @@ easy_admin_bundle:
     type:     annotation
     prefix:   /admin
 
-cms2_base:
-    resource: "@CMS2BaseBundle/Resources/config/routing.yml"
-    prefix:   /
-
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
     prefix:     /admin
+
+cms2_rest:
+    type: rest
+    resource: "@CMS2RestBundle/Resources/config/routing.yml"
+    prefix:   /api
+
+cms2_base:
+    resource: "@CMS2BaseBundle/Resources/config/routing.yml"
+    prefix:   /

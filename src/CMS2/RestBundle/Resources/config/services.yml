@@ -1,0 +1,4 @@
+services:
+#    cms2_rest.example:
+#        class: CMS2\RestBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
