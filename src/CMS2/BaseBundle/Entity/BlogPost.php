@@ -4,7 +4,7 @@ namespace CMS2\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use CMS2\BaseBundle\Entity\AliasHelper;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * BlogPost
@@ -12,14 +12,15 @@ use CMS2\BaseBundle\Entity\AliasHelper;
  * @ORM\Table()
  * @ORM\Entity
  */
-class BlogPost extends AliasHelper
-{
+class BlogPost {
+
     /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"blogpost"})
      */
     private $id;
 
@@ -27,6 +28,7 @@ class BlogPost extends AliasHelper
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Groups({"blogpost"})
      */
     private $title;
 
@@ -34,6 +36,7 @@ class BlogPost extends AliasHelper
      * @var string
      *
      * @ORM\Column(name="subtitle", type="string", length=255)
+     * @Groups({"blogpost"})
      */
     private $subtitle;
 
@@ -41,6 +44,7 @@ class BlogPost extends AliasHelper
      * @var string
      *
      * @ORM\Column(name="author", type="string", length=255)
+     * @Groups({"blogpost"})
      */
     private $author;
 
@@ -48,6 +52,7 @@ class BlogPost extends AliasHelper
      * @var string
      *
      * @ORM\Column(name="text", type="text", nullable=true)
+     * @Groups({"blogpost"})
      */
     private $text;
 
@@ -55,6 +60,7 @@ class BlogPost extends AliasHelper
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Groups({"blogpost"})
      */
     private $date;
 
@@ -62,6 +68,7 @@ class BlogPost extends AliasHelper
      * @var string
      *
      * @ORM\Column(name="tag", type="string", length=255)
+     * @Groups({"blogpost"})
      */
     private $tag;
 
@@ -69,6 +76,7 @@ class BlogPost extends AliasHelper
      * @var string
      *
      * @ORM\Column(name="category", type="string", length=255)
+     * @Groups({"blogpost"})
      */
     private $category;
 
@@ -81,6 +89,13 @@ class BlogPost extends AliasHelper
     private $language;
 
     /**
+     *
+     * @var type 
+     * @Groups({"blogpost"})
+     */
+    private $languageId;
+
+    /**
      * @var integer
      *
      * @ORM\ManyToOne(targetEntity="Section")
@@ -89,12 +104,26 @@ class BlogPost extends AliasHelper
     private $section;
 
     /**
+     *
+     * @var type 
+     * @Groups({"blogpost"})
+     */
+    private $sectionId;
+
+    /**
      * @var integer
      *
-     * @ORM\OneToOne(targetEntity="Alias",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Alias", inversedBy="blogpost", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="alias_id", referencedColumnName="id")
      */
     private $alias;
+
+    /**
+     *
+     * @var type 
+     * @Groups({"blogpost"})
+     */
+    private $aliasId;
 
     /**
      * @var integer
@@ -104,8 +133,14 @@ class BlogPost extends AliasHelper
      */
     private $status;
 
-    public function __construct()
-    {
+    /**
+     *
+     * @var type 
+     * @Groups({"blogpost"})
+     */
+    private $statusId;
+
+    public function __construct() {
         $this->tag = new ArrayCollection();
         $this->category = new ArrayCollection();
         $this->language = new ArrayCollection();
@@ -119,8 +154,7 @@ class BlogPost extends AliasHelper
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -130,8 +164,7 @@ class BlogPost extends AliasHelper
      * @param string $title
      * @return BlogPost
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
 
         return $this;
@@ -142,8 +175,7 @@ class BlogPost extends AliasHelper
      *
      * @return string 
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -153,8 +185,7 @@ class BlogPost extends AliasHelper
      * @param string $subtitle
      * @return BlogPost
      */
-    public function setSubTitle($subtitle)
-    {
+    public function setSubTitle($subtitle) {
         $this->subtitle = $subtitle;
 
         return $this;
@@ -165,8 +196,7 @@ class BlogPost extends AliasHelper
      *
      * @return string 
      */
-    public function getSubTitle()
-    {
+    public function getSubTitle() {
         return $this->subtitle;
     }
 
@@ -176,8 +206,7 @@ class BlogPost extends AliasHelper
      * @param string $author
      * @return BlogPost
      */
-    public function setAuthor($author)
-    {
+    public function setAuthor($author) {
         $this->author = $author;
 
         return $this;
@@ -188,8 +217,7 @@ class BlogPost extends AliasHelper
      *
      * @return string 
      */
-    public function getAuthor()
-    {
+    public function getAuthor() {
         return $this->author;
     }
 
@@ -199,8 +227,7 @@ class BlogPost extends AliasHelper
      * @param string $text
      * @return BlogPost
      */
-    public function setText($text)
-    {
+    public function setText($text) {
         $this->text = $text;
 
         return $this;
@@ -211,8 +238,7 @@ class BlogPost extends AliasHelper
      *
      * @return string 
      */
-    public function getText()
-    {
+    public function getText() {
         return $this->text;
     }
 
@@ -222,8 +248,7 @@ class BlogPost extends AliasHelper
      * @param \DateTime $date
      * @return BlogPost
      */
-    public function setDate($date)
-    {
+    public function setDate($date) {
         $this->date = $date;
 
         return $this;
@@ -234,8 +259,7 @@ class BlogPost extends AliasHelper
      *
      * @return \DateTime 
      */
-    public function getDate()
-    {
+    public function getDate() {
         return $this->date;
     }
 
@@ -245,8 +269,7 @@ class BlogPost extends AliasHelper
      * @param string tag
      * @return tag
      */
-    public function setTag($tag)
-    {
+    public function setTag($tag) {
         $this->tag = $tag;
 
         return $this;
@@ -257,8 +280,7 @@ class BlogPost extends AliasHelper
      *
      * @return tag
      */
-    public function getTag()
-    {
+    public function getTag() {
         return $this->tag;
     }
 
@@ -268,8 +290,7 @@ class BlogPost extends AliasHelper
      * @param string category
      * @return BlogPost
      */
-    public function setCategory($category)
-    {
+    public function setCategory($category) {
         $this->category = $category;
 
         return $this;
@@ -280,8 +301,7 @@ class BlogPost extends AliasHelper
      *
      * @return category
      */
-    public function getCategory()
-    {
+    public function getCategory() {
         return $this->category;
     }
 
@@ -290,8 +310,7 @@ class BlogPost extends AliasHelper
      *
      * @return Section
      */
-    public function getSection()
-    {
+    public function getSection() {
         return $this->section;
     }
 
@@ -301,8 +320,7 @@ class BlogPost extends AliasHelper
      * @param integer section
      * @return Section
      */
-    public function setSection($section)
-    {
+    public function setSection($section) {
         $this->section = $section;
 
         return $this;
@@ -313,8 +331,7 @@ class BlogPost extends AliasHelper
      *
      * @return Language
      */
-    public function getLanguage()
-    {
+    public function getLanguage() {
         return $this->language;
     }
 
@@ -324,8 +341,7 @@ class BlogPost extends AliasHelper
      * @param integer language
      * @return Page's Language
      */
-    public function setLanguage($language)
-    {
+    public function setLanguage($language) {
         $this->language = $language;
 
         return $this;
@@ -336,8 +352,7 @@ class BlogPost extends AliasHelper
      *
      * @return Alias
      */
-    public function getAlias()
-    {
+    public function getAlias() {
         return $this->alias;
     }
 
@@ -347,8 +362,7 @@ class BlogPost extends AliasHelper
      * @param integer alias
      * @return Page's Alias
      */
-    public function setAlias($alias)
-    {
+    public function setAlias($alias) {
         $this->alias = $alias;
 
         return $this;
@@ -359,8 +373,7 @@ class BlogPost extends AliasHelper
      *
      * @return Status
      */
-    public function getStatus()
-    {
+    public function getStatus() {
         return $this->status;
     }
 
@@ -370,11 +383,26 @@ class BlogPost extends AliasHelper
      * @param integer status
      * @return Page's Status
      */
-    public function setStatus($status)
-    {
+    public function setStatus($status) {
         $this->status = $status;
 
         return $this;
+    }
+
+    public function getLanguageId() {
+        return $this->getLanguage()->getId();
+    }
+
+    public function getSectionId() {
+        return $this->getSection()->getId();
+    }
+
+    public function getAliasId() {
+        return $this->getAlias()->getId();
+    }
+
+    public function getStatusId() {
+        return $this->getStatus()->getId();
     }
 
 }
