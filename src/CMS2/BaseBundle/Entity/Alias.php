@@ -3,6 +3,7 @@
 namespace CMS2\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Alias
@@ -10,8 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Alias
-{
+class Alias {
+
     const Page = '1';
     const BlogPost = '2';
 
@@ -21,6 +22,7 @@ class Alias
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"alias"})
      */
     private $id;
 
@@ -28,6 +30,7 @@ class Alias
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=255, unique=true)
+     * @Groups({"alias"})
      */
     private $url;
 
@@ -37,6 +40,7 @@ class Alias
      * Type 1 - page
      * Type 2 - blogPost
      * @ORM\Column(name="type", type="integer")
+     * @Groups({"alias"})
      */
     private $type;
 
@@ -46,17 +50,30 @@ class Alias
     private $blogpost;
 
     /**
+     *
+     * @var type 
+     * @Groups({"alias"})
+     */
+    private $blogPostId;
+
+    /**
      * @ORM\OneToOne(targetEntity="Page", mappedBy="alias", fetch="EAGER")
      */
     private $page;
+
+    /**
+     *
+     * @var type 
+     * @Groups({"alias"})
+     */
+    private $pageid;
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -66,8 +83,7 @@ class Alias
      * @param string $url
      * @return Alias
      */
-    public function setUrl($url)
-    {
+    public function setUrl($url) {
         $this->url = $url;
 
         return $this;
@@ -78,8 +94,7 @@ class Alias
      *
      * @return string 
      */
-    public function getUrl()
-    {
+    public function getUrl() {
         return $this->url;
     }
 
@@ -89,8 +104,7 @@ class Alias
      * @param string $type
      * @return Type
      */
-    public function setType($type)
-    {
+    public function setType($type) {
         $this->type = $type;
 
         return $this;
@@ -101,8 +115,7 @@ class Alias
      *
      * @return string 
      */
-    public function getType()
-    {
+    public function getType() {
         return $this->type;
     }
 
@@ -112,8 +125,7 @@ class Alias
      * @param CMS2\BaseBundle\Entity\BlogPost $blogpost
      * @return CMS2\BaseBundle\Entity\BlogPost
      */
-    public function setBlogpost($blogpost)
-    {
+    public function setBlogpost($blogpost) {
         $this->blogpost = $blogpost;
 
         return $this;
@@ -124,8 +136,7 @@ class Alias
      *
      * @return CMS2\BaseBundle\Entity\BlogPost
      */
-    public function getBlogpost()
-    {
+    public function getBlogpost() {
         return $this->blogpost;
     }
 
@@ -135,8 +146,7 @@ class Alias
      * @param CMS2\BaseBundle\Entity\Page $page
      * @return CMS2\BaseBundle\Entity\Page
      */
-    public function setPage($page)
-    {
+    public function setPage($page) {
         $this->page = $page;
 
         return $this;
@@ -147,8 +157,7 @@ class Alias
      *
      * @return CMS2\BaseBundle\Entity\Page
      */
-    public function getPage()
-    {
+    public function getPage() {
         return $this->page;
     }
 
@@ -156,8 +165,8 @@ class Alias
      * This method is needed for EasyAdmin Bundle to return correctly the values
      * to the forms
      */
-    public function __toString()
-    {
+
+    public function __toString() {
         return $this->url;
     }
 
@@ -166,12 +175,24 @@ class Alias
      *
      * @return string
      */
-    public function getSpace()
-    {
+    public function getSpace() {
         if ($this->getId() == self::Page) {
             return 'Page';
         } else {
             return 'Blog Post';
         }
     }
+
+    function getBlogPostId() {
+        if ($this->getBlogpost() != null) {
+            return $this->getBlogpost()->getId();
+        }
+    }
+
+    function getPageid() {
+        if ($this->getPage() != null) {
+            return $this->getPage()->getId();
+        }
+    }
+
 }
