@@ -12,6 +12,10 @@ cms2_rest:
     resource: "@CMS2RestBundle/Resources/config/routing.yml"
     prefix:   /api
 
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+
 cms2_base:
     resource: "@CMS2BaseBundle/Resources/config/routing.yml"
     prefix:   /
