@@ -1,3 +1,9 @@
 services:
     file.uploader.helper:
         class: CMS2\BaseBundle\Helper\UploadHelper
+
+    alias.preflush:
+        class: CMS2\BaseBundle\EventListener\AliasListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist, connection: default }
+            - { name: doctrine.event_listener, event: preFlush, connection: default }
