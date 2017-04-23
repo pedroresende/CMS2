@@ -12,8 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Alias
 {
-    const page = '1';
-    const blogPost = '2';
+    const Page = '1';
+    const BlogPost = '2';
 
     /**
      * @var integer
@@ -39,6 +39,16 @@ class Alias
      * @ORM\Column(name="type", type="integer")
      */
     private $type;
+
+    /**
+     * @ORM\OneToOne(targetEntity="BlogPost", mappedBy="alias", fetch="EAGER")
+     */
+    private $blogpost;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Page", mappedBy="alias", fetch="EAGER")
+     */
+    private $page;
 
     /**
      * Get id
@@ -96,6 +106,52 @@ class Alias
         return $this->type;
     }
 
+    /**
+     * Set blogpost
+     *
+     * @param CMS2\BaseBundle\Entity\BlogPost $blogpost
+     * @return CMS2\BaseBundle\Entity\BlogPost
+     */
+    public function setBlogpost($blogpost)
+    {
+        $this->blogpost = $blogpost;
+
+        return $this;
+    }
+
+    /**
+     * Get blogpost
+     *
+     * @return CMS2\BaseBundle\Entity\BlogPost
+     */
+    public function getBlogpost()
+    {
+        return $this->blogpost;
+    }
+
+    /**
+     * Set page
+     *
+     * @param CMS2\BaseBundle\Entity\Page $page
+     * @return CMS2\BaseBundle\Entity\Page
+     */
+    public function setPage($page)
+    {
+        $this->page = $page;
+
+        return $this;
+    }
+
+    /**
+     * Get page
+     *
+     * @return CMS2\BaseBundle\Entity\Page
+     */
+    public function getPage()
+    {
+        return $this->page;
+    }
+
     /*
      * This method is needed for EasyAdmin Bundle to return correctly the values
      * to the forms
@@ -112,7 +168,7 @@ class Alias
      */
     public function getSpace()
     {
-        if ($this->getId() == self::page) {
+        if ($this->getId() == self::Page) {
             return 'Page';
         } else {
             return 'Blog Post';
