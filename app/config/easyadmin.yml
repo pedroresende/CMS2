@@ -20,6 +20,10 @@ easy_admin:
               icon: 'users'
               children:
                 - { entity: 'User', icon: 'user', label: 'Users' }
+            - label: 'Contacts'
+              icon: 'address-card-o'
+              children:
+                - { entity: 'Contact', icon: 'address-card-o', label: 'Contacts' }
             - label: 'Setup'
               icon: 'cogs'
               children:
@@ -38,6 +42,11 @@ easy_admin:
                 - '//cdn.tinymce.com/4/tinymce.min.js'
                 - 'bundles/cms2base/js/tinymce.js'
     entities:
+        - Contact:
+          class: CMS2\BaseBundle\Entity\Contact
+          disabled_actions: ['new']
+          list:
+              title: Contacts
         - Setting:
           class: CMS2\BaseBundle\Entity\Setting
           disabled_actions: ['new', 'delete', 'search']
