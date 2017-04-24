@@ -12,18 +12,9 @@ easy_admin:
               children:
                 - { entity: 'BlogPost', icon: 'file-o', label: 'Blog Posts' }
                 - { entity: 'Page', icon: 'paper-plane', label: 'Pages' }
-            - label: 'Media'
-              icon: 'film'
-              children:
-                - { entity: 'File', icon: 'file', label: 'Files' }
-            - label: 'Users'
-              icon: 'users'
-              children:
-                - { entity: 'User', icon: 'user', label: 'Users' }
-            - label: 'Contacts'
-              icon: 'address-card-o'
-              children:
-                - { entity: 'Contact', icon: 'address-card-o', label: 'Contacts' }
+            - { entity: 'File', icon: 'film', label: 'Media' }
+            - { entity: 'User', icon: 'user', label: 'Users' }
+            - { entity: 'Contact', icon: 'address-card-o', label: 'Contacts' }
             - label: 'Setup'
               icon: 'cogs'
               children:
