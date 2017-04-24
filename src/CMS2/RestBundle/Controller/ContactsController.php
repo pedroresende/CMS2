@@ -100,7 +100,7 @@ class ContactsController extends Controller {
             $entityManager->flush();
 
             $response->setStatusCode(Response::HTTP_CREATED);
-        } catch (Exception $ex) {
+        } catch (\Exception $ex) {
             $response->setStatusCode(Response::HTTP_BAD_REQUEST);
         }
 

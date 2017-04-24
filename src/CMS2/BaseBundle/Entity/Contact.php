@@ -10,6 +10,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *
  * @ORM\Table(name="contact")
  * @ORM\Entity(repositoryClass="CMS2\BaseBundle\Repository\ContactRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Contact
 {
