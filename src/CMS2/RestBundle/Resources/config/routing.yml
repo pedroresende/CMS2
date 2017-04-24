@@ -10,6 +10,12 @@ blogposts:
     resource: CMS2\RestBundle\Controller\BlogPostsController
     name_prefix:  blogpost_
 
+contacts:
+    type:     rest
+    prefix: contact
+    resource: CMS2\RestBundle\Controller\ContactsController
+    name_prefix:  contact_
+
 files:
     type:     rest
     prefix: file
