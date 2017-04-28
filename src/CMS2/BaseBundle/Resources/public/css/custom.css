@@ -11,3 +11,8 @@ and open the template in the editor.
 .main-header .logo {
     width: 100%;
 }
+
+.jumbotron {
+    border-radius: 6px;
+    padding:  5px;
+}

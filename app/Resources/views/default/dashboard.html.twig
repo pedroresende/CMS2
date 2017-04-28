@@ -16,13 +16,71 @@
 
         <div class="col-sm-7">
             <div class="global-actions">
-                
+
             </div>
         </div>
     </div>
 {% endblock content_header %}
 
 {% block main %}
+    <div class="jumbotron">
+        <h2>Analytics</h2>
+        <div id="chart-1-container"></div>
+    </div>
+    <div class="jumbotron">
+        <h2>Cache</h2>
+        <p><a class="btn btn-primary btn-lg" role="button" id="cache_clear">Clear Cache</a></p>
+        <div id="cache_status"></div>
+    </div>
 
+    <script>
+        (function (w, d, s, g, js, fs) {
+            g = w.gapi || (w.gapi = {});
+            g.analytics = {q: [], ready: function (f) {
+                    this.q.push(f);
+                }};
+            js = d.createElement(s);
+            fs = d.getElementsByTagName(s)[0];
+            js.src = 'https://apis.google.com/js/platform.js';
+            fs.parentNode.insertBefore(js, fs);
+            js.onload = function () {
+                g.load('analytics');
+            };
+        }(window, document, 'script'));
+    </script>
+    <script>
+        gapi.analytics.ready(function () {
+            /**
+             * Authorize the user with an access token obtained server side.
+             */
+            gapi.analytics.auth.authorize({
+                'serverAuth': {
+                    'access_token': '{{ ACCESS_TOKEN_FROM_SERVICE_ACCOUNT }}'
+                }
+            });
 
+            /**
+             * Creates a new DataChart instance showing sessions over the past 30 days.
+             * It will be rendered inside an element with the id "chart-1-container".
+             */
+            var dataChart1 = new gapi.analytics.googleCharts.DataChart({
+                query: {
+                    'ids': '{{ analytics }}',
+                    'start-date': '30daysAgo',
+                    'end-date': 'today',
+                    'metrics': 'ga:sessions,ga:users',
+                    'dimensions': 'ga:date'
+                },
+                chart: {
+                    'container': 'chart-1-container',
+                    'type': 'LINE',
+                    'options': {
+                        'width': '95%'
+                    }
+                }
+            });
+            dataChart1.execute();
+
+        });
+    </script>
 {% endblock %}

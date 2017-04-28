@@ -32,6 +32,7 @@ easy_admin:
                 - 'bundles/cms2base/js/dropzone.min.js'
                 - '//cdn.tinymce.com/4/tinymce.min.js'
                 - 'bundles/cms2base/js/tinymce.js'
+                - 'bundles/cms2base/js/custom.js'
     entities:
         - Contact:
           class: CMS2\BaseBundle\Entity\Contact

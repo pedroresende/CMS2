@@ -12,3 +12,8 @@ list_files:
     path: admin/files/imagelist
     defaults: { _controller: CMS2BaseBundle:File:imageList }
     methods:  [GET]
+
+clearcache:
+    path: admin/clearcache
+    defaults: { _controller: CMS2BaseBundle:Dashboard:cacheClear }
+    methods:  [GET]

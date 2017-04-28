@@ -29,6 +29,7 @@ framework:
         # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
         handler_id:  session.handler.native_file
         save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+        cookie_httponly:         false 
     fragments: ~
     http_method_override: true
     assets: ~
@@ -42,6 +43,7 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         name: 'Dashboard'
+        analytics: 'ga:95900022'
 
 # Doctrine Configuration
 doctrine:
