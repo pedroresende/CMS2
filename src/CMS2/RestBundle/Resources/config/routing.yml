@@ -45,3 +45,9 @@ status:
     prefix: status
     resource: CMS2\RestBundle\Controller\StatusController
     name_prefix:  status_
+
+settings:
+    type:     rest
+    prefix: settings
+    resource: CMS2\RestBundle\Controller\SettingsController
+    name_prefix:  settings_
