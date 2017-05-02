@@ -45,14 +45,6 @@ The service account you created in the previous step has an email address that y
 
 Access to /api/doc
 
-# Tests
-
-In order to execute the acceptance tests you need to run the following command
-
-```
-docker-compose run php bin/codecept run acceptance --steps
-```
-
 # Docker
 
 ```
@@ -71,3 +63,11 @@ http://localhost:81/
 ```
 
 You can change the default variables values on .env file
+
+# Tests
+
+In order to execute the acceptance tests you need to run the following command
+
+```
+docker-compose run php bin/codecept run acceptance --steps
+```
