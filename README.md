@@ -50,7 +50,7 @@ Access to /api/doc
 In order to execute the acceptance tests you need to run the following command
 
 ```
-bin/codecept run acceptance --steps
+docker-compose run php bin/codecept run acceptance --steps
 ```
 
 # Docker
