@@ -45,3 +45,21 @@ The service account you created in the previous step has an email address that y
 
 Access to /api/doc
 
+# Docker
+
+```
+$ docker-compose up
+```
+In order to access the database
+
+```
+mysql -uroot -psymfony -P3307
+```
+
+Open your browser
+
+```
+http://localhost:81/
+```
+
+You can change the default variables values on .env file
