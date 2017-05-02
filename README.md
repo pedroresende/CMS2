@@ -45,6 +45,14 @@ The service account you created in the previous step has an email address that y
 
 Access to /api/doc
 
+# Tests
+
+In order to execute the acceptance tests you need to run the following command
+
+```
+bin/codecept run acceptance --steps
+```
+
 # Docker
 
 ```
