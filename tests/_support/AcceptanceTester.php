@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Inherited Methods
  * @method void wantToTest($text)
@@ -15,12 +14,50 @@
  * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = NULL)
  *
  * @SuppressWarnings(PHPMD)
-*/
+ */
 class AcceptanceTester extends \Codeception\Actor
 {
+
     use _generated\AcceptanceTesterActions;
 
-   /**
-    * Define custom actions here
-    */
+    /**
+     * @Given I am on :arg1 page
+     */
+    public function iAmOnPage($arg1)
+    {
+        $this->amOnPage($arg1);
+        $this->resizeWindow(800, 600);
+    }
+
+    /**
+     * @Given I fill the field :arg1 with :arg2
+     */
+    public function iFillTheFieldWith($arg1, $arg2)
+    {
+        $this->fillField($arg1, $arg2);
+    }
+
+    /**
+     * @When I press the :arg1 button
+     */
+    public function iPressTheButton($arg1)
+    {
+        $this->click($arg1);
+    }
+
+    /**
+     * @Then I should see :arg1
+     */
+     public function iShouldSee($arg1)
+     {
+        $this->see($arg1);
+     }
+
+    /**
+     * @Then I should see :arg1 on :arg2
+     */
+    public function iShouldSeeOn($arg1, $arg2)
+    {
+        $this->see($arg1, $arg2);
+    }
 }
