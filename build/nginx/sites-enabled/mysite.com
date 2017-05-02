@@ -1,5 +1,5 @@
 server {
-    server_name localhost;
+    server_name localhost web;
     root /symfony/web;
 
     location / {
