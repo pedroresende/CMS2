@@ -12,3 +12,9 @@ settings:
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+        - Codeception\Extension\Phantoman
+    config:
+        Codeception\Extension\Phantoman:
+            path: 'vendor/jakoch/phantomjs/bin/phantomjs'
+            port: 4444
+            suites: ['acceptance']

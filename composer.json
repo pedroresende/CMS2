@@ -43,7 +43,9 @@
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
+        "jakoch/phantomjs-installer": "2.1.1-p08",
         "sensio/generator-bundle": "^3.0",
+        "site5/phantoman": "^1.1",
         "symfony/phpunit-bridge": "^3.0"
     },
     "scripts": {
@@ -53,7 +55,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+            "PhantomInstaller\\Installer::installPhantomJS"
         ],
         "post-install-cmd": [
             "@symfony-scripts"
@@ -63,7 +66,8 @@
         ]
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "bin-dir": "bin"
     },
     "extra": {
         "symfony-app-dir": "app",

@@ -1,0 +1,7 @@
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver:
+            url: 'http://localhost'
+            browser: phantomjs
+        - \Helper\Acceptance
