@@ -11,7 +11,7 @@ $ bin/console doctrine:schema:create
 ## Add base database 
 
 ```
-$ bin/console doctrine:migrations:migrate
+$ bin/console doctrine:migrations:migrate -b
 ```
 
 
@@ -69,5 +69,9 @@ You can change the default variables values on .env file
 In order to execute the acceptance tests you need to run the following command
 
 ```
+docker-compose run php bin/console doctrine:schema:create
+docker-compose run php bin/console doctrine:migrations:migrate -n
+docker-compose run php bin/console fos:user:create admin admin@admin.com admin
+docker-compose run php bin/console fos:user:promote admin ROLE_ADMIN
 docker-compose run php bin/codecept run acceptance --steps
 ```
