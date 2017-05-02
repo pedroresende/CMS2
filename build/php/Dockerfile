@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -my \
   php-xdebug \
   php-cli \
   php-intl \
+  php-mbstring \
   git \
   zip \
   php-apcu \
