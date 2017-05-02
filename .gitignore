@@ -15,3 +15,5 @@
 /web/bundles/
 /logs/
 /mysql/
+/nbproject/private/
+tests/_output/*
