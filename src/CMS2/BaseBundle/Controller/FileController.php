@@ -8,6 +8,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Debug\ErrorHandler;
 use CMS2\BaseBundle\Entity\File;
 
+/**
+ * Description of FileController
+ *
+ * @author Pedro Resende <pedroresende@mail.resende.biz>
+ */
 class FileController extends Controller
 {
 

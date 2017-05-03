@@ -10,7 +10,7 @@ use Symfony\Component\Filesystem\Filesystem;
 /**
  * Description of DashboardController
  *
- * @author pedroresende
+ * @author Pedro Resende <pedroresende@mail.resende.biz>
  */
 class DashboardController extends Controller
 {
