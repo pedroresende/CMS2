@@ -34,7 +34,7 @@ class Section
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -57,7 +57,7 @@ class Section
     /**
      * Get section
      *
-     * @return string 
+     * @return string
      */
     public function getSection()
     {

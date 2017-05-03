@@ -174,4 +174,3 @@ class Contact
         return $this;
     }
 }
-

@@ -11,8 +11,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Alias {
-
+class Alias
+{
     const Page = '1';
     const BlogPost = '2';
 
@@ -51,7 +51,7 @@ class Alias {
 
     /**
      *
-     * @var type 
+     * @var type
      * @Groups({"alias"})
      */
     private $blogPostId;
@@ -63,7 +63,7 @@ class Alias {
 
     /**
      *
-     * @var type 
+     * @var type
      * @Groups({"alias"})
      */
     private $pageid;
@@ -71,9 +71,10 @@ class Alias {
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -83,7 +84,8 @@ class Alias {
      * @param string $url
      * @return Alias
      */
-    public function setUrl($url) {
+    public function setUrl($url)
+    {
         $this->url = $url;
 
         return $this;
@@ -92,9 +94,10 @@ class Alias {
     /**
      * Get url
      *
-     * @return string 
+     * @return string
      */
-    public function getUrl() {
+    public function getUrl()
+    {
         return $this->url;
     }
 
@@ -104,7 +107,8 @@ class Alias {
      * @param string $type
      * @return Type
      */
-    public function setType($type) {
+    public function setType($type)
+    {
         $this->type = $type;
 
         return $this;
@@ -113,9 +117,10 @@ class Alias {
     /**
      * Get type
      *
-     * @return string 
+     * @return string
      */
-    public function getType() {
+    public function getType()
+    {
         return $this->type;
     }
 
@@ -125,7 +130,8 @@ class Alias {
      * @param CMS2\BaseBundle\Entity\BlogPost $blogpost
      * @return CMS2\BaseBundle\Entity\BlogPost
      */
-    public function setBlogpost($blogpost) {
+    public function setBlogpost($blogpost)
+    {
         $this->blogpost = $blogpost;
 
         return $this;
@@ -136,7 +142,8 @@ class Alias {
      *
      * @return CMS2\BaseBundle\Entity\BlogPost
      */
-    public function getBlogpost() {
+    public function getBlogpost()
+    {
         return $this->blogpost;
     }
 
@@ -146,7 +153,8 @@ class Alias {
      * @param CMS2\BaseBundle\Entity\Page $page
      * @return CMS2\BaseBundle\Entity\Page
      */
-    public function setPage($page) {
+    public function setPage($page)
+    {
         $this->page = $page;
 
         return $this;
@@ -157,7 +165,8 @@ class Alias {
      *
      * @return CMS2\BaseBundle\Entity\Page
      */
-    public function getPage() {
+    public function getPage()
+    {
         return $this->page;
     }
 
@@ -166,7 +175,8 @@ class Alias {
      * to the forms
      */
 
-    public function __toString() {
+    public function __toString()
+    {
         return $this->url;
     }
 
@@ -175,7 +185,8 @@ class Alias {
      *
      * @return string
      */
-    public function getSpace() {
+    public function getSpace()
+    {
         if ($this->getId() == self::Page) {
             return 'Page';
         } else {
@@ -183,16 +194,17 @@ class Alias {
         }
     }
 
-    function getBlogPostId() {
+    public function getBlogPostId()
+    {
         if ($this->getBlogpost() != null) {
             return $this->getBlogpost()->getId();
         }
     }
 
-    function getPageid() {
+    public function getPageid()
+    {
         if ($this->getPage() != null) {
             return $this->getPage()->getId();
         }
     }
-
 }

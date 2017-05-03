@@ -67,7 +67,7 @@ class Setting
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -90,7 +90,7 @@ class Setting
     /**
      * Get sitename
      *
-     * @return string 
+     * @return string
      */
     public function getSitename()
     {
@@ -113,7 +113,7 @@ class Setting
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -136,7 +136,7 @@ class Setting
     /**
      * Get keywords
      *
-     * @return string 
+     * @return string
      */
     public function getKeywords()
     {
@@ -159,7 +159,7 @@ class Setting
     /**
      * Get author
      *
-     * @return string 
+     * @return string
      */
     public function getAuthor()
     {
@@ -182,7 +182,7 @@ class Setting
     /**
      * Get blog
      *
-     * @return string 
+     * @return string
      */
     public function getBlog()
     {
