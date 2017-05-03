@@ -12,7 +12,7 @@ use FOS\RestBundle\Controller\Annotations\Route;
  * Description of FilesController
  *
  * @author Pedro Resende <pedroresende@mail.resende.biz>
- * @date 14/04/2017
+ * date 14/04/2017
  */
 class FilesController extends Controller {
 

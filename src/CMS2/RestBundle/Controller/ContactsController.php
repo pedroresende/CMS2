@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\Serializer;
  * Description of ContactsController
  *
  * @author Pedro Resende <pedroresende@mail.resende.biz>
- * @date 14/04/2017
+ * date 14/04/2017
  */
 class ContactsController extends Controller {
 

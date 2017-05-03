@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
  * Description of Upload
  *
  * @author Pedro Resende <pedroresende@mail.resende.biz>
- * @date 14/08/2014
+ * date 14/08/2014
  */
 class UploadHelper
 {

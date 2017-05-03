@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
  * Description of AliasController
  *
  * @author Pedro Resende <pedroresende@mail.resende.biz>
- * @date 14/04/2017
+ * date 14/04/2017
  */
 class AliasController extends Controller {
 
