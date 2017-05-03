@@ -17,7 +17,7 @@ class FileController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function imageListAction()
+    public function imageListAction(): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
 
@@ -46,7 +46,7 @@ class FileController extends Controller
      * @param type $current_page the actual page
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function newfileAction(Request $request)
+    public function newfileAction(Request $request): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
 
