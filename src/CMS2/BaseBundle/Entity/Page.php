@@ -12,7 +12,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Page {
+class Page
+{
 
     /**
      * @var integer
@@ -69,7 +70,7 @@ class Page {
     private $language;
 
     /**
-     * @var type 
+     * @var type
      * @Groups({"page"})
      */
     private $languageId;
@@ -83,7 +84,7 @@ class Page {
     private $status;
 
     /**
-     * @var type 
+     * @var type
      * @Groups({"page"})
      */
     private $statusId;
@@ -97,12 +98,13 @@ class Page {
     private $alias;
 
     /**
-     * @var type 
+     * @var type
      * @Groups({"page"})
      */
     private $aliasId;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->language = new ArrayCollection();
         $this->section = new ArrayCollection();
         $this->status = new ArrayCollection();
@@ -112,9 +114,10 @@ class Page {
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -124,7 +127,8 @@ class Page {
      * @param string $title
      * @return Page
      */
-    public function setTitle($title) {
+    public function setTitle($title)
+    {
         $this->title = $title;
 
         return $this;
@@ -133,9 +137,10 @@ class Page {
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
-    public function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
 
@@ -145,7 +150,8 @@ class Page {
      * @param string $text
      * @return Page
      */
-    public function setText($text) {
+    public function setText($text)
+    {
         $this->text = $text;
 
         return $this;
@@ -154,9 +160,10 @@ class Page {
     /**
      * Get text
      *
-     * @return string 
+     * @return string
      */
-    public function getText() {
+    public function getText()
+    {
         return $this->text;
     }
 
@@ -166,7 +173,8 @@ class Page {
      * @param \DateTime $date
      * @return Page
      */
-    public function setDate($date) {
+    public function setDate($date)
+    {
         $this->date = $date;
 
         return $this;
@@ -175,9 +183,10 @@ class Page {
     /**
      * Get date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getDate() {
+    public function getDate()
+    {
         return $this->date;
     }
 
@@ -186,7 +195,8 @@ class Page {
      *
      * @return Section
      */
-    public function getSection() {
+    public function getSection()
+    {
         return $this->section;
     }
 
@@ -196,7 +206,8 @@ class Page {
      * @param integer section
      * @return Section
      */
-    public function setSection($section) {
+    public function setSection($section)
+    {
         $this->section = $section;
 
         return $this;
@@ -207,7 +218,8 @@ class Page {
      *
      * @return SectionName
      */
-    public function getSectionId() {
+    public function getSectionId()
+    {
         return $this->getSection()->getId();
     }
 
@@ -216,7 +228,8 @@ class Page {
      *
      * @return Language
      */
-    public function getLanguage() {
+    public function getLanguage()
+    {
         return $this->language;
     }
 
@@ -226,7 +239,8 @@ class Page {
      * @param integer language
      * @return Page's Language
      */
-    public function setLanguage($language) {
+    public function setLanguage($language)
+    {
         $this->language = $language;
 
         return $this;
@@ -237,7 +251,8 @@ class Page {
      *
      * @return LanguageName
      */
-    public function getLanguageId() {
+    public function getLanguageId()
+    {
         return $this->getLanguage()->getId();
     }
 
@@ -246,7 +261,8 @@ class Page {
      *
      * @return Alias
      */
-    public function getAlias() {
+    public function getAlias()
+    {
         return $this->alias;
     }
 
@@ -256,7 +272,8 @@ class Page {
      * @param integer alias
      * @return Page's Alias
      */
-    public function setAlias($alias) {
+    public function setAlias($alias)
+    {
         $this->alias = $alias;
 
         return $this;
@@ -267,7 +284,8 @@ class Page {
      *
      * @return AliasUrl
      */
-    public function getAliasId() {
+    public function getAliasId()
+    {
         return $this->getAlias()->getId();
     }
 
@@ -276,7 +294,8 @@ class Page {
      *
      * @return Status
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->status;
     }
 
@@ -286,7 +305,8 @@ class Page {
      * @param integer status
      * @return Page's Status
      */
-    public function setStatus($status) {
+    public function setStatus($status)
+    {
         $this->status = $status;
 
         return $this;
@@ -297,7 +317,8 @@ class Page {
      *
      * @return StatusName
      */
-    public function getStatusId() {
+    public function getStatusId()
+    {
         return $this->getStatus()->getId();
     }
 }

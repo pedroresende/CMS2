@@ -42,7 +42,7 @@ class Language
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -65,7 +65,7 @@ class Language
     /**
      * Get language
      *
-     * @return string 
+     * @return string
      */
     public function getLanguage()
     {
@@ -88,7 +88,7 @@ class Language
     /**
      * Get code
      *
-     * @return string 
+     * @return string
      */
     public function getCode()
     {

@@ -8,6 +8,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Description of AliasController
+ *
+ * @author Pedro Resende <pedroresende@mail.resende.biz>
+ * date 14/04/2017
+ */
 class AliasController extends Controller {
 
     /**
@@ -16,7 +22,7 @@ class AliasController extends Controller {
      * )
      * 
      */
-    public function optionsAction() {
+    public function optionsAction(): Response {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS');
@@ -39,7 +45,7 @@ class AliasController extends Controller {
      * )
      * @Get("/{id}")
      */
-    public function getAction($id) {
+    public function getAction($id): Response {
         $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->find($id);
 
         $response = new Response();
@@ -71,7 +77,7 @@ class AliasController extends Controller {
      *  }
      * )
      */
-    public function getUrlAction($slug) {
+    public function getUrlAction($slug): Response {
         $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->findOneByUrl($slug);
 
         $response = new Response();
@@ -93,7 +99,7 @@ class AliasController extends Controller {
      * )
      * @Get("")
      */
-    public function getAllAction() {
+    public function getAllAction(): Response {
         $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->findAll();
 
         $response = new Response();

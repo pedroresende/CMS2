@@ -10,12 +10,12 @@ use Symfony\Component\Filesystem\Filesystem;
 /**
  * Description of DashboardController
  *
- * @author pedroresende
+ * @author Pedro Resende <pedroresende@mail.resende.biz>
  */
 class DashboardController extends Controller
 {
 
-    public function indexAction(Request $request)
+    public function indexAction(Request $request): Response
     {
         $scope = 'https://www.googleapis.com/auth/analytics';
         $jsonKey = $this->get('kernel')->getRootDir() . '/config/client_secret.json';
@@ -37,7 +37,7 @@ class DashboardController extends Controller
         );
     }
 
-    public function cacheClearAction()
+    public function cacheClearAction(): Response
     {
         $fs = new Filesystem();
         $fs->remove($this->container->getParameter('kernel.cache_dir'));

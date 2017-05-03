@@ -45,7 +45,7 @@ class Menu
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -68,7 +68,7 @@ class Menu
     /**
      * Get position
      *
-     * @return integer 
+     * @return integer
      */
     public function getPosition()
     {
@@ -91,7 +91,7 @@ class Menu
     /**
      * Get page
      *
-     * @return Xvolutions\AdminBundle\Entity\Page 
+     * @return Xvolutions\AdminBundle\Entity\Page
      */
     public function getPage()
     {

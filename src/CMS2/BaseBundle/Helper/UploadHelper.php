@@ -9,19 +9,24 @@ use Symfony\Component\HttpFoundation\Request;
  * Description of Upload
  *
  * @author Pedro Resende <pedroresende@mail.resende.biz>
- * @date 14/08/2014
+ * date 14/08/2014
  */
 class UploadHelper
 {
+
     /**
      * This function is responsible to deal with the uploaded file
      *
      * @param Request $request
-     * @param type $folder The destination folder
+     * @param string $folder The destination folder
      * @param string $fileName The new generated name
-     * @param type $size Size of the uploaded file
+     * @param string $originalFileName The original filename
+     * @param int $size The size of the File
+     * @param string $type The file type
+     *
+     * @return boolean Always returns true
      */
-    public function upload(Request $request, $folder, &$fileName, &$originalFileName, &$size, &$type)
+    public function upload(Request $request, $folder, &$fileName, &$originalFileName, &$size, &$type): boolean
     {
         $status = true;
         foreach ($request->files as $uploadedFile) {
@@ -31,6 +36,7 @@ class UploadHelper
             $size = filesize($uploadedFile);
             $uploadedFile->move($folder, $fileName);
         }
+
         return $status;
     }
 }

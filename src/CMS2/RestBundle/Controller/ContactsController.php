@@ -10,6 +10,12 @@ use Symfony\Component\HttpFoundation\Response;
 use CMS2\BaseBundle\Entity\Contact;
 use Symfony\Component\Serializer\Serializer;
 
+/**
+ * Description of ContactsController
+ *
+ * @author Pedro Resende <pedroresende@mail.resende.biz>
+ * date 14/04/2017
+ */
 class ContactsController extends Controller {
 
     /**
@@ -18,7 +24,7 @@ class ContactsController extends Controller {
      * )
      * 
      */
-    public function optionsAction() {
+    public function optionsAction(): Response {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS');
@@ -41,7 +47,7 @@ class ContactsController extends Controller {
      * )
      * @Get("/{id}")
      */
-    public function getAction($id) {
+    public function getAction($id): Response {
         $page = $this->getDoctrine()->getRepository('CMS2BaseBundle:Contact')->find($id);
 
         $response = new Response();
@@ -63,7 +69,7 @@ class ContactsController extends Controller {
      * )
      * @Get("")
      */
-    public function getAllAction() {
+    public function getAllAction(): Response {
         $pages = $this->getDoctrine()->getRepository('CMS2BaseBundle:Contact')->findAll();
 
         $response = new Response();
@@ -85,7 +91,7 @@ class ContactsController extends Controller {
      *  description="Post a contact",
      * )
      */
-    public function postAction(Request $request) {
+    public function postAction(Request $request): Response {
         $data = json_decode($request->getContent(), true);
 
         $response = new Response();

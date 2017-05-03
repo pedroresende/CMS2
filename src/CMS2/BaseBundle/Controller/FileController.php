@@ -8,6 +8,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Debug\ErrorHandler;
 use CMS2\BaseBundle\Entity\File;
 
+/**
+ * Description of FileController
+ *
+ * @author Pedro Resende <pedroresende@mail.resende.biz>
+ */
 class FileController extends Controller
 {
 
@@ -17,7 +22,7 @@ class FileController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function imageListAction()
+    public function imageListAction(): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
 
@@ -46,7 +51,7 @@ class FileController extends Controller
      * @param type $current_page the actual page
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function newfileAction(Request $request)
+    public function newfileAction(Request $request): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
 

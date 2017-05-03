@@ -9,6 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations\Route;
 
+/**
+ * Description of LanguagesController
+ *
+ * @author Pedro Resende <pedroresende@mail.resende.biz>
+ * date 14/04/2017
+ */
 class LanguagesController extends Controller {
 
     /**
@@ -17,7 +23,7 @@ class LanguagesController extends Controller {
      * )
      * 
      */
-    public function optionsAction() {
+    public function optionsAction(): Response {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS');
@@ -40,7 +46,7 @@ class LanguagesController extends Controller {
      * )
      * @Get("/{id}")
      */
-    public function getAction($id) {
+    public function getAction($id): Response {
         $language = $this->getDoctrine()->getRepository('CMS2BaseBundle:Language')->find($id);
 
         $response = new Response();
@@ -62,7 +68,7 @@ class LanguagesController extends Controller {
      * )
      * @Get("")
      */
-    public function getAllAction() {
+    public function getAllAction(): Response {
         $languages = $this->getDoctrine()->getRepository('CMS2BaseBundle:Language')->findAll();
 
         $response = new Response();

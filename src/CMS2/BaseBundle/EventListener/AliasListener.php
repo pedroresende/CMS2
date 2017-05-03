@@ -14,12 +14,13 @@ use Doctrine\ORM\Event\PreFlushEventArgs;
  *
  * @author pedroresende
  */
-class AliasListener {
-
+class AliasListener
+{
     private $entity;
     private $entityManager;
 
-    public function prePersist(LifecycleEventArgs $args) {
+    public function prePersist(LifecycleEventArgs $args)
+    {
         $this->entity = $args->getEntity();
 
         if (!$this->entity instanceof Page && !$this->entity instanceof BlogPost) {
@@ -34,7 +35,8 @@ class AliasListener {
      * @TODO think about the preFlush
      * @param PreFlushEventArgs $args
      */
-    public function preFlush(PreFlushEventArgs $args) {
+    public function preFlush(PreFlushEventArgs $args)
+    {
         /*$this->entity = $args->getEntity();
 
         if (!$this->entity instanceof Page && !$this->entity instanceof BlogPost) {
@@ -64,7 +66,8 @@ class AliasListener {
      *
      * @return $this
      */
-    public function addAliasElement() {
+    public function addAliasElement()
+    {
         $slugify = new Slugify();
         $slugified = $slugify->slugify($this->entity->getTitle());
 
@@ -87,5 +90,4 @@ class AliasListener {
             return;
         }
     }
-
 }
