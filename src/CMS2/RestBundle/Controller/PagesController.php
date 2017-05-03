@@ -8,6 +8,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Description of PagesController
+ *
+ * @author Pedro Resende <pedroresende@mail.resende.biz>
+ * @date 14/04/2017
+ */
 class PagesController extends Controller {
 
     /**
@@ -16,7 +22,7 @@ class PagesController extends Controller {
      * )
      * 
      */
-    public function optionsAction() {
+    public function optionsAction(): Response {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS');
@@ -39,7 +45,7 @@ class PagesController extends Controller {
      * )
      * @Get("/{id}")
      */
-    public function getAction($id) {
+    public function getAction($id): Response {
         $page = $this->getDoctrine()->getRepository('CMS2BaseBundle:Page')->find($id);
 
         $response = new Response();
@@ -61,7 +67,7 @@ class PagesController extends Controller {
      * )
      * @Get("")
      */
-    public function getAllAction() {
+    public function getAllAction(): Response {
         $pages = $this->getDoctrine()->getRepository('CMS2BaseBundle:Page')->findAll();
 
         $response = new Response();

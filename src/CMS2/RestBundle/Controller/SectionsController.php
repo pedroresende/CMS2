@@ -9,6 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations\Route;
 
+/**
+ * Description of SectionsController
+ *
+ * @author Pedro Resende <pedroresende@mail.resende.biz>
+ * @date 14/04/2017
+ */
 class SectionsController extends Controller {
 
     /**
@@ -17,7 +23,7 @@ class SectionsController extends Controller {
      * )
      * 
      */
-    public function optionsAction() {
+    public function optionsAction(): Response {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS');
@@ -40,7 +46,7 @@ class SectionsController extends Controller {
      * )
      * @Get("/{id}")
      */
-    public function getAction($id) {
+    public function getAction($id): Response {
         if ($id == "{id}") {
             $section = $this->getDoctrine()->getRepository('CMS2BaseBundle:Section')->findAll();
         } else {
@@ -66,7 +72,7 @@ class SectionsController extends Controller {
      * )
      * @Get("")
      */
-    public function getAllAction() {
+    public function getAllAction(): Response {
         $sections = $this->getDoctrine()->getRepository('CMS2BaseBundle:Section')->findAll();
 
         $response = new Response();

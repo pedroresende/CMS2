@@ -9,6 +9,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Description of BlogPostsController
+ *
+ * @author Pedro Resende <pedroresende@mail.resende.biz>
+ * @date 14/04/2017
+ */
 class BlogPostsController extends Controller {
 
     /**
@@ -17,7 +23,7 @@ class BlogPostsController extends Controller {
      * )
      * 
      */
-    public function optionsAction() {
+    public function optionsAction(): Response {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS');
@@ -40,7 +46,7 @@ class BlogPostsController extends Controller {
      * )
      * @Get("/{id}")
      */
-    public function getAction($id) {
+    public function getAction($id): Response {
         $blogPost = $this->getDoctrine()->getRepository('CMS2BaseBundle:BlogPost')->find($id);
 
         $response = new Response();
@@ -62,7 +68,7 @@ class BlogPostsController extends Controller {
      * )
      * @Get("")
      */
-    public function getBlogPostsAction($offset = 0, $limit = 10) {
+    public function getBlogPostsAction($offset = 0, $limit = 10): Response {
         $blogPosts = $this->getDoctrine()->getRepository('CMS2BaseBundle:BlogPost')->findBy([], null, $limit, $offset);
 
         $response = new Response();
