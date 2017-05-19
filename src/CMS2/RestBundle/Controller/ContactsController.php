@@ -19,6 +19,8 @@ use Symfony\Component\Serializer\Serializer;
 class ContactsController extends Controller {
 
     /**
+     * Returns the available REST verbs
+     * 
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
@@ -27,12 +29,14 @@ class ContactsController extends Controller {
     public function optionsAction(): Response {
         $response = new Response();
 
-        $response->headers->set('Allow', 'GET, OPTIONS');
+        $response->headers->set('Allow', 'GET, OPTIONS, POST');
 
         return $response;
     }
 
     /**
+     * Returns a contact by Id
+     * 
      * @ApiDoc(
      *  description="Returns a contact by Id",
      *  requirements={
@@ -64,6 +68,8 @@ class ContactsController extends Controller {
     }
 
     /**
+     * Returns the list of Contacts
+     * 
      * @ApiDoc(
      *  description="Returns the list of Contacts",
      * )
@@ -87,8 +93,10 @@ class ContactsController extends Controller {
 
     
     /**
+     * Post a new contact
+     * 
      * @ApiDoc(
-     *  description="Post a contact",
+     *  description="Post a new contact",
      * )
      */
     public function postAction(Request $request): Response {

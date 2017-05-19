@@ -18,6 +18,8 @@ use FOS\RestBundle\Controller\Annotations\Route;
 class StatusController extends Controller {
 
     /**
+     * Returns the available REST verbs
+     * 
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
@@ -32,6 +34,8 @@ class StatusController extends Controller {
     }
 
     /**
+     * Returns all the status, or the the only one with the given id
+     * 
      * @ApiDoc(
      *  description="Returns all the status, or the the only one with the given id",
      *  requirements={
@@ -67,6 +71,8 @@ class StatusController extends Controller {
     }
 
     /**
+     * Returns the list of Status
+     * 
      * @ApiDoc(
      *  description="Returns the list of Status",
      * )
