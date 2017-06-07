@@ -17,6 +17,8 @@ use FOS\RestBundle\Controller\Annotations\Route;
 class FilesController extends Controller {
 
     /**
+     * Returns the available REST verbs
+     * 
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
@@ -31,20 +33,22 @@ class FilesController extends Controller {
     }
 
     /**
-    * @ApiDoc(
-    *  description="Returns a file by it's name",
-    *  requirements={
-    *      {
-    *          "name"="name",
-    *          "dataType"="string",
-    *          "requirement"="",
-    *          "required"=true,
-    *          "description"="Name of the file to be returned"
-    *      }
-    *  }
-    * )
-    * @Route(options={"segment_separators"={0="/"}})
-    */
+     * Returns a file by it's name
+     * 
+     * @ApiDoc(
+     *  description="Returns a file by it's name",
+     *  requirements={
+     *      {
+     *          "name"="name",
+     *          "dataType"="string",
+     *          "requirement"="",
+     *          "required"=true,
+     *          "description"="Name of the file to be returned"
+     *      }
+     *  }
+     * )
+     * @Route(options={"segment_separators"={0="/"}})
+     */
     public function getAction($name): Response {
         $file = $this->getDoctrine()->getRepository('CMS2BaseBundle:File')->findOneByName($name);
 
@@ -60,6 +64,8 @@ class FilesController extends Controller {
     }
 
     /**
+     * Returns a file info by Id
+     * 
      * @ApiDoc(
      *  description="Returns a file info by Id",
      *  requirements={

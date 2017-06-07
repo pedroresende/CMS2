@@ -11,7 +11,7 @@ $ bin/console doctrine:schema:create
 ## Add base database 
 
 ```
-$ bin/console doctrine:migrations:migrate -b
+$ bin/console doctrine:migrations:migrate -n
 ```
 
 

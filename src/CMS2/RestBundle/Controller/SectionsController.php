@@ -18,6 +18,8 @@ use FOS\RestBundle\Controller\Annotations\Route;
 class SectionsController extends Controller {
 
     /**
+     * Returns the available REST verbs
+     * 
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
@@ -32,6 +34,8 @@ class SectionsController extends Controller {
     }
 
     /**
+     * Returns all the sections, or the the only one with the given id
+     * 
      * @ApiDoc(
      *  description="Returns all the sections, or the the only one with the given id",
      *  requirements={
@@ -67,6 +71,8 @@ class SectionsController extends Controller {
     }
 
     /**
+     * Returns the list of Sections
+     * 
      * @ApiDoc(
      *  description="Returns the list of Sections",
      * )
