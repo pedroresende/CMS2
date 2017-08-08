@@ -39,6 +39,7 @@ class AcceptanceTester extends \Codeception\Actor
 
     /**
      * @When I press the :arg1 button
+     * @When I click on the :arg1 link
      */
     public function iPressTheButton($arg1)
     {
@@ -54,10 +55,26 @@ class AcceptanceTester extends \Codeception\Actor
      }
 
     /**
+     * @Then I should see the :arg1 button
+     */
+     public function iShouldSeeTheButton($arg1)
+     {
+        $this->seeElement('input', ['value' => $arg1]);
+     }
+
+    /**
      * @Then I should see :arg1 on :arg2
      */
     public function iShouldSeeOn($arg1, $arg2)
     {
         $this->see($arg1, $arg2);
+    }
+
+    /**
+     * @Then I should be on :arg1 page
+     */
+    public function iShouldBeOn($arg1)
+    {
+        $this->seeCurrentUrlEquals($arg1);
     }
 }
