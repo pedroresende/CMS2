@@ -7,12 +7,12 @@ Feature: loginAdmin
     Given I am on "/admin/login" page
     And I fill the field "_username" with "xpto"
     And I fill the field "_password" with "xpto"
-    When I press the "Log in" button
+    When I press the "Login" button
     Then I should see "Invalid credentials."
 
   Scenario: try to login into admin interface with correct permissiones
     Given I am on "/admin/login" page
     And I fill the field "_username" with "admin"
     And I fill the field "_password" with "admin"
-    When I press the "Log in" button
+    When I press the "Login" button
     Then I should see "Dashboard"
