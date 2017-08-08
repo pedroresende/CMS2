@@ -2,7 +2,7 @@
 
 <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
     <div class="form-group ">
-        <input type="text" class="form-control" placeholder="Username " id="usernam" name="username" value="{{ 'resetting.request.username'|trans }}" required="required">
+        <input type="text" class="form-control" placeholder="Username " id="username" name="username" value="{{ 'resetting.request.username'|trans }}" required="required">
         <i class="fa fa-user"></i>
     </div>
     <a class="link" href="{{ path('fos_user_security_login') }}">Back</a>
