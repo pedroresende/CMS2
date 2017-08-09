@@ -1,6 +1,10 @@
 before_script:
   - docker-compose -f docker-compose-gitlab.yml build
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
   - docker-compose -f docker-compose-gitlab.yml run php composer install
+
+after_script:
+  - docker-compose -f docker-compose-gitlab.yml down
 
 stages:
   - code_quality
@@ -9,7 +13,7 @@ stages:
 code_quality:
   stage: code_quality
   script:
-    - docker-compose -f docker-compose-gitlab.yml run php bin/phpcs src/ --standard=psr2
+    - docker-compose -f docker-compose-gitlab.yml run php bin/phpcs src/ --standard=psr2 --extensions=php
 
 codeception_tests:
   stage: codeception_tests
