@@ -17,7 +17,7 @@ class BlogPostsController extends Controller
 {
     /**
      * Returns the available REST verbs.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
@@ -33,7 +33,7 @@ class BlogPostsController extends Controller
 
     /**
      * Returns a blogpost by Id.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns a blogpost by Id",
      *  requirements={
@@ -67,7 +67,7 @@ class BlogPostsController extends Controller
 
     /**
      * Returns the list of BlogPosts.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns the list of BlogPosts",
      * )

@@ -17,7 +17,7 @@ class LanguagesController extends Controller
 {
     /**
      * Returns the available REST verbs.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
@@ -33,7 +33,7 @@ class LanguagesController extends Controller
 
     /**
      * Returns a language by Id.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns a language by Id",
      *  requirements={
@@ -67,7 +67,7 @@ class LanguagesController extends Controller
 
     /**
      * Returns the list of Languages.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns the list of Languages",
      * )

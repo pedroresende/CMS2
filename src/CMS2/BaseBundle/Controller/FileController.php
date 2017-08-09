@@ -63,8 +63,12 @@ class FileController extends Controller
         $status = null;
         $error = null;
         if ($upload->upload(
-            $request, $folder, $fileName, $originalFileName,
-            $size, $type
+            $request,
+            $folder,
+            $fileName,
+            $originalFileName,
+            $size,
+            $type
         )
         ) {
             $name = $this->getDoctrine()->getRepository('CMS2BaseBundle:File')->findByName($originalFileName);

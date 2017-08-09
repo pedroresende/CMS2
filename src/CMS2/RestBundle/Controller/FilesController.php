@@ -17,7 +17,7 @@ class FilesController extends Controller
 {
     /**
      * Returns the available REST verbs.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
@@ -33,7 +33,7 @@ class FilesController extends Controller
 
     /**
      * Returns a file by it's name.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns a file by it's name",
      *  requirements={
@@ -65,7 +65,7 @@ class FilesController extends Controller
 
     /**
      * Returns a file info by Id.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns a file info by Id",
      *  requirements={

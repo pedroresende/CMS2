@@ -17,7 +17,7 @@ class PagesController extends Controller
 {
     /**
      * Returns the available REST verbs.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
@@ -33,7 +33,7 @@ class PagesController extends Controller
 
     /**
      * Returns a page by Id.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns a page by Id",
      *  requirements={
@@ -67,7 +67,7 @@ class PagesController extends Controller
 
     /**
      * Returns the list of Pages.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns the list of Pages",
      * )

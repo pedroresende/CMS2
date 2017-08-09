@@ -13,8 +13,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
  */
 class Alias
 {
-    const Page = '1';
-    const BlogPost = '2';
+    const PAGE = '1';
+    const BLOG_POST = '2';
 
     /**
      * @var int
@@ -37,8 +37,8 @@ class Alias
     /**
      * @var int
      *
-     * Type 1 - page
-     * Type 2 - blogPost
+     * Type 1 - PAGE
+     * Type 2 - BLOG_POST
      * @ORM\Column(name="type", type="integer")
      * @Groups({"alias"})
      */

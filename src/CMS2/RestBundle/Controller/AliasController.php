@@ -17,7 +17,7 @@ class AliasController extends Controller
 {
     /**
      * Returns the available REST verbs.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
@@ -33,7 +33,7 @@ class AliasController extends Controller
 
     /**
      * Returns a alias by Id.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns a alias by Id",
      *  requirements={
@@ -67,7 +67,7 @@ class AliasController extends Controller
 
     /**
      * Returns a alias by url.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns a alias by url",
      *  requirements={
@@ -100,7 +100,7 @@ class AliasController extends Controller
 
     /**
      * Returns the list of Alias.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns the list of Alias",
      * )

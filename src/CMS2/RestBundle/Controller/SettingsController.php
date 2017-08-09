@@ -17,7 +17,7 @@ class SettingsController extends Controller
 {
     /**
      * Returns the available REST verbs.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
@@ -33,7 +33,7 @@ class SettingsController extends Controller
 
     /**
      * Returns all the settings.
-     * 
+     *
      * @ApiDoc(
      *  description="Returns all the settings",
      * )

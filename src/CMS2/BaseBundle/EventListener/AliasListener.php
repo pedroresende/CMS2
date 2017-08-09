@@ -78,9 +78,9 @@ class AliasListener
             $alias = new Alias();
 
             if ($this->entity instanceof Page) {
-                $alias->setType(Alias::Page);
+                $alias->setType(Alias::PAGE);
             } else {
-                $alias->setType(Alias::BlogPost);
+                $alias->setType(Alias::BLOG_POST);
             }
 
             $slugify = new Slugify();
