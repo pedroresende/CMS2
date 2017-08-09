@@ -40,7 +40,8 @@
         "jakoch/phantomjs-installer": "2.1.1-p08",
         "sensio/generator-bundle": "^3.0",
         "site5/phantoman": "^1.1",
-        "symfony/phpunit-bridge": "^3.0"
+        "symfony/phpunit-bridge": "^3.0",
+        "squizlabs/php_codesniffer": "3.*"
     },
     "scripts": {
         "symfony-scripts": [
