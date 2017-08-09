@@ -25,6 +25,9 @@
 {% block main %}
     <div class="jumbotron">
         <h2>Analytics</h2>
+        {% if ACCESS_TOKEN_FROM_SERVICE_ACCOUNT == 'invalid' %}
+            Invalid client_secret.json file, please check README.md file
+        {% endif %}
         <div id="chart-1-container"></div>
     </div>
     <div class="jumbotron">

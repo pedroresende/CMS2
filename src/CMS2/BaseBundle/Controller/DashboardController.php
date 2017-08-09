@@ -15,19 +15,30 @@ use Symfony\Component\Filesystem\Filesystem;
 class DashboardController extends Controller
 {
 
+    /**
+     * Controller responsible for fetching the content from client_secret.json file
+     * and return the ACCESS_TOKEN_FROM_SERVICE_ACCOUNT to the analytics dashboard
+     *
+     * @param Symfony\Component\HttpFoundation\Request $request
+     * @return Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction(Request $request): Response
     {
-        $scope = 'https://www.googleapis.com/auth/analytics';
-        $jsonKey = $this->get('kernel')->getRootDir() . '/config/client_secret.json';
+        try {
+            $scope = 'https://www.googleapis.com/auth/analytics';
+            $jsonKey = $this->get('kernel')->getRootDir() . '/config/client_secret.json';
 
-        $client = new \Google_Client();
-        $client->setScopes([$scope]);
-        $client->setAuthConfig($jsonKey);
+            $client = new \Google_Client();
+            $client->setScopes([$scope]);
+            $client->setAuthConfig($jsonKey);
 
-        $client->useApplicationDefaultCredentials();
-        $client->fetchAccessTokenWithAssertion();
+            $client->useApplicationDefaultCredentials();
+            $client->fetchAccessTokenWithAssertion();
 
-        $accessToken = $client->getAccessToken()['access_token'];
+            $accessToken = $client->getAccessToken()['access_token'];
+        } catch (\InvalidArgumentException $ex) {
+            $accessToken = "invalid";
+        }
 
         return $this->render(
             'default/dashboard.html.twig',
@@ -37,6 +48,11 @@ class DashboardController extends Controller
         );
     }
 
+    /**
+     * Controller responsible for clearing symfony's cache
+     *
+     * @return Symfony\Component\HttpFoundation\Response
+     */
     public function cacheClearAction(): Response
     {
         $fs = new Filesystem();
