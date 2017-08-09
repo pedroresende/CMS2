@@ -62,8 +62,11 @@ class FileController extends Controller
         $type = null;
         $status = null;
         $error = null;
-        if ($upload->upload($request, $folder, $fileName, $originalFileName,
-                $size, $type)) {
+        if ($upload->upload(
+            $request, $folder, $fileName, $originalFileName,
+            $size, $type
+        )
+        ) {
             $name = $this->getDoctrine()->getRepository('CMS2BaseBundle:File')->findByName($originalFileName);
             if (count($name) > 0) {
                 @unlink($folder.'/'.$fileName);

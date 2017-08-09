@@ -5,11 +5,17 @@
  */
 
 
-$('#cache_clear').click(function () {
-    fetch('/app_dev.php/admin/clearcache')
-        .then(function (response) {
+$('#cache_clear').click(
+    function () {
+        fetch('/app_dev.php/admin/clearcache')
+        .then(
+            function (response) {
                 return response.text()
-        }).then(function (body) {
-    })
-    $('#cache_status').html('Cache Cleared');
-});
+            }
+        ).then(
+            function (body) {
+            }
+        )
+        $('#cache_status').html('Cache Cleared');
+    }
+);
