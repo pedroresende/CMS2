@@ -6,6 +6,9 @@ services:
       - '9000'
     depends_on:
       - db
+    volumes:
+      - ./:/symfony:cached
+      - ./logs:/var/log
   web:
     build: build/nginx
     ports:
@@ -13,6 +16,9 @@ services:
     depends_on:
         - php
         - db
+    volumes:
+        - ./:/symfony:cached
+        - ./logs:/var/log/nginx
   db:
     image: mysql/mysql-server:latest
     environment:
