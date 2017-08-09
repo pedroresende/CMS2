@@ -10,7 +10,8 @@ parameters:
 
     mailer_transport: smtp
     mailer_host: 127.0.0.1
-    mailer_user: pedroresende@mail.resende.biz
+    mailer_user: info@localhost.com
+    mailer_password: ~
     uploaded_files: %kernel.root_dir%/../web/files
     files_location: /files/
 
