@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * Language
+ * Language.
  *
  * @ORM\Table()
  * @ORM\Entity
@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class Language
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -40,9 +40,9 @@ class Language
     private $code;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -50,9 +50,10 @@ class Language
     }
 
     /**
-     * Set language
+     * Set language.
      *
      * @param string $language
+     *
      * @return Language
      */
     public function setLanguage($language)
@@ -63,7 +64,7 @@ class Language
     }
 
     /**
-     * Get language
+     * Get language.
      *
      * @return string
      */
@@ -73,9 +74,10 @@ class Language
     }
 
     /**
-     * Set code
+     * Set code.
      *
      * @param string $code
+     *
      * @return Language
      */
     public function setCode($code)
@@ -86,7 +88,7 @@ class Language
     }
 
     /**
-     * Get code
+     * Get code.
      *
      * @return string
      */

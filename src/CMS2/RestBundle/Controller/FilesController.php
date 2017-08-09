@@ -4,27 +4,26 @@ namespace CMS2\RestBundle\Controller;
 
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations\Route;
 
 /**
- * Description of FilesController
+ * Description of FilesController.
  *
  * @author Pedro Resende <pedroresende@mail.resende.biz>
  * date 14/04/2017
  */
-class FilesController extends Controller {
-
+class FilesController extends Controller
+{
     /**
-     * Returns the available REST verbs
+     * Returns the available REST verbs.
      * 
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
-     * 
      */
-    public function optionsAction(): Response {
+    public function optionsAction(): Response
+    {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS');
@@ -33,7 +32,7 @@ class FilesController extends Controller {
     }
 
     /**
-     * Returns a file by it's name
+     * Returns a file by it's name.
      * 
      * @ApiDoc(
      *  description="Returns a file by it's name",
@@ -49,12 +48,13 @@ class FilesController extends Controller {
      * )
      * @Route(options={"segment_separators"={0="/"}})
      */
-    public function getAction($name): Response {
+    public function getAction($name): Response
+    {
         $file = $this->getDoctrine()->getRepository('CMS2BaseBundle:File')->findOneByName($name);
 
         $response = new Response();
         if (!empty($file)) {
-            $file = $this->getParameter('uploaded_files') . '/' . $file->getFileName();
+            $file = $this->getParameter('uploaded_files').'/'.$file->getFileName();
             $response->setContent(file_get_contents($file));
         } else {
             $response->setStatusCode(Response::HTTP_NOT_FOUND);
@@ -64,7 +64,7 @@ class FilesController extends Controller {
     }
 
     /**
-     * Returns a file info by Id
+     * Returns a file info by Id.
      * 
      * @ApiDoc(
      *  description="Returns a file info by Id",
@@ -79,7 +79,8 @@ class FilesController extends Controller {
      *  }
      * )
      */
-    public function getInfoAction($id): Response {
+    public function getInfoAction($id): Response
+    {
         $file = $this->getDoctrine()->getRepository('CMS2BaseBundle:File')->find($id);
 
         $response = new Response();
@@ -94,5 +95,4 @@ class FilesController extends Controller {
 
         return $response;
     }
-
 }

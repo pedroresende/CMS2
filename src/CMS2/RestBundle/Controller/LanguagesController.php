@@ -5,27 +5,25 @@ namespace CMS2\RestBundle\Controller;
 use FOS\RestBundle\Controller\Annotations\Get;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use FOS\RestBundle\Controller\Annotations\Route;
 
 /**
- * Description of LanguagesController
+ * Description of LanguagesController.
  *
  * @author Pedro Resende <pedroresende@mail.resende.biz>
  * date 14/04/2017
  */
-class LanguagesController extends Controller {
-
+class LanguagesController extends Controller
+{
     /**
-     * Returns the available REST verbs
+     * Returns the available REST verbs.
      * 
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
-     * 
      */
-    public function optionsAction(): Response {
+    public function optionsAction(): Response
+    {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS');
@@ -34,7 +32,7 @@ class LanguagesController extends Controller {
     }
 
     /**
-     * Returns a language by Id
+     * Returns a language by Id.
      * 
      * @ApiDoc(
      *  description="Returns a language by Id",
@@ -50,7 +48,8 @@ class LanguagesController extends Controller {
      * )
      * @Get("/{id}")
      */
-    public function getAction($id): Response {
+    public function getAction($id): Response
+    {
         $language = $this->getDoctrine()->getRepository('CMS2BaseBundle:Language')->find($id);
 
         $response = new Response();
@@ -67,14 +66,15 @@ class LanguagesController extends Controller {
     }
 
     /**
-     * Returns the list of Languages
+     * Returns the list of Languages.
      * 
      * @ApiDoc(
      *  description="Returns the list of Languages",
      * )
      * @Get("")
      */
-    public function getAllAction(): Response {
+    public function getAllAction(): Response
+    {
         $languages = $this->getDoctrine()->getRepository('CMS2BaseBundle:Language')->findAll();
 
         $response = new Response();
@@ -89,5 +89,4 @@ class LanguagesController extends Controller {
 
         return $response;
     }
-
 }

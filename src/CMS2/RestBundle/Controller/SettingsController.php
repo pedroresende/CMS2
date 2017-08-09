@@ -5,27 +5,25 @@ namespace CMS2\RestBundle\Controller;
 use FOS\RestBundle\Controller\Annotations\Get;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use FOS\RestBundle\Controller\Annotations\Route;
 
 /**
- * Description of SettingsController
+ * Description of SettingsController.
  *
  * @author Pedro Resende <pedroresende@mail.resende.biz>
  * date 14/04/2017
  */
-class SettingsController extends Controller {
-
+class SettingsController extends Controller
+{
     /**
-     * Returns the available REST verbs
+     * Returns the available REST verbs.
      * 
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
-     * 
      */
-    public function optionsAction(): Response {
+    public function optionsAction(): Response
+    {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS');
@@ -34,14 +32,15 @@ class SettingsController extends Controller {
     }
 
     /**
-     * Returns all the settings
+     * Returns all the settings.
      * 
      * @ApiDoc(
      *  description="Returns all the settings",
      * )
      * @Get("")
      */
-    public function getAction(): Response {
+    public function getAction(): Response
+    {
         $section = $this->getDoctrine()->getRepository('CMS2BaseBundle:Setting')->find(1);
 
         $response = new Response();
@@ -56,5 +55,4 @@ class SettingsController extends Controller {
 
         return $response;
     }
-
 }

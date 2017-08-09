@@ -5,26 +5,25 @@ namespace CMS2\RestBundle\Controller;
 use FOS\RestBundle\Controller\Annotations\Get;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Description of PagesController
+ * Description of PagesController.
  *
  * @author Pedro Resende <pedroresende@mail.resende.biz>
  * date 14/04/2017
  */
-class PagesController extends Controller {
-
+class PagesController extends Controller
+{
     /**
-     * Returns the available REST verbs
+     * Returns the available REST verbs.
      * 
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
-     * 
      */
-    public function optionsAction(): Response {
+    public function optionsAction(): Response
+    {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS');
@@ -33,7 +32,7 @@ class PagesController extends Controller {
     }
 
     /**
-     * Returns a page by Id
+     * Returns a page by Id.
      * 
      * @ApiDoc(
      *  description="Returns a page by Id",
@@ -49,7 +48,8 @@ class PagesController extends Controller {
      * )
      * @Get("/{id}")
      */
-    public function getAction($id): Response {
+    public function getAction($id): Response
+    {
         $page = $this->getDoctrine()->getRepository('CMS2BaseBundle:Page')->find($id);
 
         $response = new Response();
@@ -66,14 +66,15 @@ class PagesController extends Controller {
     }
 
     /**
-     * Returns the list of Pages
+     * Returns the list of Pages.
      * 
      * @ApiDoc(
      *  description="Returns the list of Pages",
      * )
      * @Get("")
      */
-    public function getAllAction(): Response {
+    public function getAllAction(): Response
+    {
         $pages = $this->getDoctrine()->getRepository('CMS2BaseBundle:Page')->findAll();
 
         $response = new Response();
@@ -88,5 +89,4 @@ class PagesController extends Controller {
 
         return $response;
     }
-
 }

@@ -7,16 +7,15 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * Page
+ * Page.
  *
  * @ORM\Table()
  * @ORM\Entity
  */
 class Page
 {
-
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -50,20 +49,19 @@ class Page
     private $date;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\ManyToOne(targetEntity="Section", fetch="EAGER")
      */
     private $section;
 
     /**
-     *
      * @Groups({"page"})
      */
     private $sectionId;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\ManyToOne(targetEntity="Language", fetch="EAGER")
      */
@@ -76,10 +74,9 @@ class Page
     private $languageId;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\ManyToOne(targetEntity="Status", fetch="EAGER")
-
      */
     private $status;
 
@@ -90,7 +87,7 @@ class Page
     private $statusId;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\OneToOne(targetEntity="Alias", inversedBy="page", cascade={"all"}, fetch="EAGER")
      * @ORM\JoinColumn(name="alias_id", referencedColumnName="id")
@@ -112,9 +109,9 @@ class Page
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -122,9 +119,10 @@ class Page
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
+     *
      * @return Page
      */
     public function setTitle($title)
@@ -135,7 +133,7 @@ class Page
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -145,9 +143,10 @@ class Page
     }
 
     /**
-     * Set text
+     * Set text.
      *
      * @param string $text
+     *
      * @return Page
      */
     public function setText($text)
@@ -158,7 +157,7 @@ class Page
     }
 
     /**
-     * Get text
+     * Get text.
      *
      * @return string
      */
@@ -168,9 +167,10 @@ class Page
     }
 
     /**
-     * Set date
+     * Set date.
      *
      * @param \DateTime $date
+     *
      * @return Page
      */
     public function setDate($date)
@@ -181,7 +181,7 @@ class Page
     }
 
     /**
-     * Get date
+     * Get date.
      *
      * @return \DateTime
      */
@@ -191,7 +191,7 @@ class Page
     }
 
     /**
-     * Get section
+     * Get section.
      *
      * @return Section
      */
@@ -201,9 +201,10 @@ class Page
     }
 
     /**
-     * Set section
+     * Set section.
      *
-     * @param integer section
+     * @param int section
+     *
      * @return Section
      */
     public function setSection($section)
@@ -214,7 +215,7 @@ class Page
     }
 
     /**
-     * Get sectionName
+     * Get sectionName.
      *
      * @return SectionName
      */
@@ -224,7 +225,7 @@ class Page
     }
 
     /**
-     * Get language
+     * Get language.
      *
      * @return Language
      */
@@ -234,9 +235,10 @@ class Page
     }
 
     /**
-     * Set language
+     * Set language.
      *
-     * @param integer language
+     * @param int language
+     *
      * @return Page's Language
      */
     public function setLanguage($language)
@@ -247,7 +249,7 @@ class Page
     }
 
     /**
-     * Get languageName
+     * Get languageName.
      *
      * @return LanguageName
      */
@@ -257,7 +259,7 @@ class Page
     }
 
     /**
-     * Get alias
+     * Get alias.
      *
      * @return Alias
      */
@@ -267,9 +269,10 @@ class Page
     }
 
     /**
-     * Set alias
+     * Set alias.
      *
-     * @param integer alias
+     * @param int alias
+     *
      * @return Page's Alias
      */
     public function setAlias($alias)
@@ -280,7 +283,7 @@ class Page
     }
 
     /**
-     * Get aliasUrl
+     * Get aliasUrl.
      *
      * @return AliasUrl
      */
@@ -290,7 +293,7 @@ class Page
     }
 
     /**
-     * Get status
+     * Get status.
      *
      * @return Status
      */
@@ -300,9 +303,10 @@ class Page
     }
 
     /**
-     * Set status
+     * Set status.
      *
-     * @param integer status
+     * @param int status
+     *
      * @return Page's Status
      */
     public function setStatus($status)
@@ -313,7 +317,7 @@ class Page
     }
 
     /**
-     * Get statusName
+     * Get statusName.
      *
      * @return StatusName
      */

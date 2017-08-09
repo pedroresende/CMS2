@@ -3,11 +3,9 @@
 namespace CMS2\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * Menu
+ * Menu.
  *
  * @ORM\Table()
  * @ORM\Entity
@@ -15,7 +13,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class Menu
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -24,14 +22,14 @@ class Menu
     private $id;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="position", type="integer")
      */
     private $position;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\OneToOne(targetEntity="Page")
      */
@@ -43,9 +41,9 @@ class Menu
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -53,9 +51,10 @@ class Menu
     }
 
     /**
-     * Set position
+     * Set position.
      *
-     * @param integer $position
+     * @param int $position
+     *
      * @return Menu
      */
     public function setPosition($position)
@@ -66,9 +65,9 @@ class Menu
     }
 
     /**
-     * Get position
+     * Get position.
      *
-     * @return integer
+     * @return int
      */
     public function getPosition()
     {
@@ -76,9 +75,10 @@ class Menu
     }
 
     /**
-     * Set page
+     * Set page.
      *
-     * @param integer $page
+     * @param int $page
+     *
      * @return Menu
      */
     public function setPage($page)
@@ -89,7 +89,7 @@ class Menu
     }
 
     /**
-     * Get page
+     * Get page.
      *
      * @return Xvolutions\AdminBundle\Entity\Page
      */

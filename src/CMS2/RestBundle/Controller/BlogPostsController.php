@@ -3,29 +3,27 @@
 namespace CMS2\RestBundle\Controller;
 
 use FOS\RestBundle\Controller\Annotations\Get;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Description of BlogPostsController
+ * Description of BlogPostsController.
  *
  * @author Pedro Resende <pedroresende@mail.resende.biz>
  * date 14/04/2017
  */
-class BlogPostsController extends Controller {
-
+class BlogPostsController extends Controller
+{
     /**
-     * Returns the available REST verbs
+     * Returns the available REST verbs.
      * 
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
-     * 
      */
-    public function optionsAction(): Response {
+    public function optionsAction(): Response
+    {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS');
@@ -34,7 +32,7 @@ class BlogPostsController extends Controller {
     }
 
     /**
-     * Returns a blogpost by Id
+     * Returns a blogpost by Id.
      * 
      * @ApiDoc(
      *  description="Returns a blogpost by Id",
@@ -50,7 +48,8 @@ class BlogPostsController extends Controller {
      * )
      * @Get("/{id}")
      */
-    public function getAction($id): Response {
+    public function getAction($id): Response
+    {
         $blogPost = $this->getDoctrine()->getRepository('CMS2BaseBundle:BlogPost')->find($id);
 
         $response = new Response();
@@ -67,14 +66,15 @@ class BlogPostsController extends Controller {
     }
 
     /**
-     * Returns the list of BlogPosts
+     * Returns the list of BlogPosts.
      * 
      * @ApiDoc(
      *  description="Returns the list of BlogPosts",
      * )
      * @Get("")
      */
-    public function getBlogPostsAction($offset = 0, $limit = 10): Response {
+    public function getBlogPostsAction($offset = 0, $limit = 10): Response
+    {
         $blogPosts = $this->getDoctrine()->getRepository('CMS2BaseBundle:BlogPost')->findBy([], null, $limit, $offset);
 
         $response = new Response();

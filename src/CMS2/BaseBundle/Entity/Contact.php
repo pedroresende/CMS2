@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * Contact
+ * Contact.
  *
  * @ORM\Table(name="contact")
  * @ORM\Entity(repositoryClass="CMS2\BaseBundle\Repository\ContactRepository")
@@ -56,9 +56,8 @@ class Contact
      */
     private $createdAt;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -68,7 +67,7 @@ class Contact
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -82,7 +81,7 @@ class Contact
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -92,7 +91,7 @@ class Contact
     }
 
     /**
-     * Set email
+     * Set email.
      *
      * @param string $email
      *
@@ -106,7 +105,7 @@ class Contact
     }
 
     /**
-     * Get email
+     * Get email.
      *
      * @return string
      */
@@ -116,7 +115,7 @@ class Contact
     }
 
     /**
-     * Set message
+     * Set message.
      *
      * @param string $message
      *
@@ -130,7 +129,7 @@ class Contact
     }
 
     /**
-     * Get message
+     * Get message.
      *
      * @return string
      */
@@ -140,7 +139,7 @@ class Contact
     }
 
     /**
-     * Set createdAt
+     * Set createdAt.
      *
      * @param \DateTime $createdAt
      *
@@ -154,7 +153,7 @@ class Contact
     }
 
     /**
-     * Get createdAt
+     * Get createdAt.
      *
      * @return \DateTime
      */
@@ -162,10 +161,10 @@ class Contact
     {
         return $this->createdAt;
     }
-    
+
     /**
-    * @ORM\PrePersist
-    */
+     * @ORM\PrePersist
+     */
     public function setCreatedAtDate()
     {
         $date = new \DateTime();

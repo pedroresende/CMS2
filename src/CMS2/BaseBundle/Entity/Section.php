@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * Section
+ * Section.
  *
  * @ORM\Table()
  * @ORM\Entity
@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class Section
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -32,9 +32,9 @@ class Section
     protected $section;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -42,9 +42,10 @@ class Section
     }
 
     /**
-     * Set section
+     * Set section.
      *
      * @param string $section
+     *
      * @return Name
      */
     public function setSection($section)
@@ -55,7 +56,7 @@ class Section
     }
 
     /**
-     * Get section
+     * Get section.
      *
      * @return string
      */

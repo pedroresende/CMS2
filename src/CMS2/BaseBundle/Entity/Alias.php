@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * Alias
+ * Alias.
  *
  * @ORM\Table()
  * @ORM\Entity
@@ -17,7 +17,7 @@ class Alias
     const BlogPost = '2';
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -35,7 +35,7 @@ class Alias
     private $url;
 
     /**
-     * @var integer
+     * @var int
      *
      * Type 1 - page
      * Type 2 - blogPost
@@ -50,7 +50,6 @@ class Alias
     private $blogpost;
 
     /**
-     *
      * @var type
      * @Groups({"alias"})
      */
@@ -62,16 +61,15 @@ class Alias
     private $page;
 
     /**
-     *
      * @var type
      * @Groups({"alias"})
      */
     private $pageid;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -79,9 +77,10 @@ class Alias
     }
 
     /**
-     * Set url
+     * Set url.
      *
      * @param string $url
+     *
      * @return Alias
      */
     public function setUrl($url)
@@ -92,7 +91,7 @@ class Alias
     }
 
     /**
-     * Get url
+     * Get url.
      *
      * @return string
      */
@@ -102,9 +101,10 @@ class Alias
     }
 
     /**
-     * Set type
+     * Set type.
      *
      * @param string $type
+     *
      * @return Type
      */
     public function setType($type)
@@ -115,7 +115,7 @@ class Alias
     }
 
     /**
-     * Get type
+     * Get type.
      *
      * @return string
      */
@@ -125,9 +125,10 @@ class Alias
     }
 
     /**
-     * Set blogpost
+     * Set blogpost.
      *
      * @param CMS2\BaseBundle\Entity\BlogPost $blogpost
+     *
      * @return CMS2\BaseBundle\Entity\BlogPost
      */
     public function setBlogpost($blogpost)
@@ -138,7 +139,7 @@ class Alias
     }
 
     /**
-     * Get blogpost
+     * Get blogpost.
      *
      * @return CMS2\BaseBundle\Entity\BlogPost
      */
@@ -148,9 +149,10 @@ class Alias
     }
 
     /**
-     * Set page
+     * Set page.
      *
      * @param CMS2\BaseBundle\Entity\Page $page
+     *
      * @return CMS2\BaseBundle\Entity\Page
      */
     public function setPage($page)
@@ -161,7 +163,7 @@ class Alias
     }
 
     /**
-     * Get page
+     * Get page.
      *
      * @return CMS2\BaseBundle\Entity\Page
      */
@@ -181,7 +183,7 @@ class Alias
     }
 
     /**
-     * This method will return the Space of the url alias, if page or Blog post
+     * This method will return the Space of the url alias, if page or Blog post.
      *
      * @return string
      */

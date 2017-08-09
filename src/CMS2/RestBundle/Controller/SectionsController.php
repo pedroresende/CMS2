@@ -5,27 +5,25 @@ namespace CMS2\RestBundle\Controller;
 use FOS\RestBundle\Controller\Annotations\Get;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use FOS\RestBundle\Controller\Annotations\Route;
 
 /**
- * Description of SectionsController
+ * Description of SectionsController.
  *
  * @author Pedro Resende <pedroresende@mail.resende.biz>
  * date 14/04/2017
  */
-class SectionsController extends Controller {
-
+class SectionsController extends Controller
+{
     /**
-     * Returns the available REST verbs
+     * Returns the available REST verbs.
      * 
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
-     * 
      */
-    public function optionsAction(): Response {
+    public function optionsAction(): Response
+    {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS');
@@ -34,7 +32,7 @@ class SectionsController extends Controller {
     }
 
     /**
-     * Returns all the sections, or the the only one with the given id
+     * Returns all the sections, or the the only one with the given id.
      * 
      * @ApiDoc(
      *  description="Returns all the sections, or the the only one with the given id",
@@ -50,8 +48,9 @@ class SectionsController extends Controller {
      * )
      * @Get("/{id}")
      */
-    public function getAction($id): Response {
-        if ($id == "{id}") {
+    public function getAction($id): Response
+    {
+        if ($id == '{id}') {
             $section = $this->getDoctrine()->getRepository('CMS2BaseBundle:Section')->findAll();
         } else {
             $section = $this->getDoctrine()->getRepository('CMS2BaseBundle:Section')->find($id);
@@ -71,14 +70,15 @@ class SectionsController extends Controller {
     }
 
     /**
-     * Returns the list of Sections
+     * Returns the list of Sections.
      * 
      * @ApiDoc(
      *  description="Returns the list of Sections",
      * )
      * @Get("")
      */
-    public function getAllAction(): Response {
+    public function getAllAction(): Response
+    {
         $sections = $this->getDoctrine()->getRepository('CMS2BaseBundle:Section')->findAll();
 
         $response = new Response();
@@ -93,5 +93,4 @@ class SectionsController extends Controller {
 
         return $response;
     }
-
 }

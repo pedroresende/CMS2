@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * Setting
+ * Setting.
  *
  * @ORM\Table()
  * @ORM\Entity
@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class Setting
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -56,18 +56,17 @@ class Setting
     private $author;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="blog", type="boolean", nullable=true)
      * @Groups({"settings"})
      */
     private $blog;
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -75,9 +74,10 @@ class Setting
     }
 
     /**
-     * Set sitename
+     * Set sitename.
      *
      * @param string $sitename
+     *
      * @return Setting
      */
     public function setSitename($sitename)
@@ -88,7 +88,7 @@ class Setting
     }
 
     /**
-     * Get sitename
+     * Get sitename.
      *
      * @return string
      */
@@ -98,9 +98,10 @@ class Setting
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
+     *
      * @return Setting
      */
     public function setDescription($description)
@@ -111,7 +112,7 @@ class Setting
     }
 
     /**
-     * Get description
+     * Get description.
      *
      * @return string
      */
@@ -121,9 +122,10 @@ class Setting
     }
 
     /**
-     * Set keywords
+     * Set keywords.
      *
      * @param string $keywords
+     *
      * @return Setting
      */
     public function setKeywords($keywords)
@@ -134,7 +136,7 @@ class Setting
     }
 
     /**
-     * Get keywords
+     * Get keywords.
      *
      * @return string
      */
@@ -144,9 +146,10 @@ class Setting
     }
 
     /**
-     * Set author
+     * Set author.
      *
      * @param string $author
+     *
      * @return Setting
      */
     public function setAuthor($author)
@@ -157,7 +160,7 @@ class Setting
     }
 
     /**
-     * Get author
+     * Get author.
      *
      * @return string
      */
@@ -167,9 +170,10 @@ class Setting
     }
 
     /**
-     * Set blog
+     * Set blog.
      *
      * @param string $blog
+     *
      * @return Setting
      */
     public function setBlog($blog)
@@ -180,7 +184,7 @@ class Setting
     }
 
     /**
-     * Get blog
+     * Get blog.
      *
      * @return string
      */

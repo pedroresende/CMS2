@@ -11,22 +11,22 @@ use CMS2\BaseBundle\Entity\Contact;
 use Symfony\Component\Serializer\Serializer;
 
 /**
- * Description of ContactsController
+ * Description of ContactsController.
  *
  * @author Pedro Resende <pedroresende@mail.resende.biz>
  * date 14/04/2017
  */
-class ContactsController extends Controller {
-
+class ContactsController extends Controller
+{
     /**
-     * Returns the available REST verbs
+     * Returns the available REST verbs.
      * 
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
-     * 
      */
-    public function optionsAction(): Response {
+    public function optionsAction(): Response
+    {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS, POST');
@@ -35,7 +35,7 @@ class ContactsController extends Controller {
     }
 
     /**
-     * Returns a contact by Id
+     * Returns a contact by Id.
      * 
      * @ApiDoc(
      *  description="Returns a contact by Id",
@@ -51,7 +51,8 @@ class ContactsController extends Controller {
      * )
      * @Get("/{id}")
      */
-    public function getAction($id): Response {
+    public function getAction($id): Response
+    {
         $page = $this->getDoctrine()->getRepository('CMS2BaseBundle:Contact')->find($id);
 
         $response = new Response();
@@ -68,14 +69,15 @@ class ContactsController extends Controller {
     }
 
     /**
-     * Returns the list of Contacts
+     * Returns the list of Contacts.
      * 
      * @ApiDoc(
      *  description="Returns the list of Contacts",
      * )
      * @Get("")
      */
-    public function getAllAction(): Response {
+    public function getAllAction(): Response
+    {
         $pages = $this->getDoctrine()->getRepository('CMS2BaseBundle:Contact')->findAll();
 
         $response = new Response();
@@ -91,15 +93,15 @@ class ContactsController extends Controller {
         return $response;
     }
 
-    
     /**
-     * Post a new contact
+     * Post a new contact.
      * 
      * @ApiDoc(
      *  description="Post a new contact",
      * )
      */
-    public function postAction(Request $request): Response {
+    public function postAction(Request $request): Response
+    {
         $data = json_decode($request->getContent(), true);
 
         $response = new Response();
@@ -120,5 +122,4 @@ class ContactsController extends Controller {
 
         return $response;
     }
-
 }

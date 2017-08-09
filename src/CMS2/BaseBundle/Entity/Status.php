@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * Status
+ * Status.
  *
  * @ORM\Table()
  * @ORM\Entity
@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class Status
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -31,11 +31,10 @@ class Status
      */
     private $status;
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -43,9 +42,10 @@ class Status
     }
 
     /**
-     * Set status
+     * Set status.
      *
      * @param string $status
+     *
      * @return Status
      */
     public function setStatus($status)
@@ -56,7 +56,7 @@ class Status
     }
 
     /**
-     * Get status
+     * Get status.
      *
      * @return string
      */

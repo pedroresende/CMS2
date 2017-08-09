@@ -7,16 +7,15 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * BlogPost
+ * BlogPost.
  *
  * @ORM\Table()
  * @ORM\Entity
  */
 class BlogPost
 {
-
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -82,7 +81,7 @@ class BlogPost
     private $category;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\ManyToOne(targetEntity="Language")
      * @ORM\JoinColumn(name="language_id", referencedColumnName="id")
@@ -90,14 +89,13 @@ class BlogPost
     private $language;
 
     /**
-     *
      * @var type
      * @Groups({"blogpost"})
      */
     private $languageId;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\ManyToOne(targetEntity="Section")
      * @ORM\JoinColumn(name="section_id", referencedColumnName="id")
@@ -105,14 +103,13 @@ class BlogPost
     private $section;
 
     /**
-     *
      * @var type
      * @Groups({"blogpost"})
      */
     private $sectionId;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\OneToOne(targetEntity="Alias", inversedBy="blogpost", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="alias_id", referencedColumnName="id")
@@ -120,14 +117,13 @@ class BlogPost
     private $alias;
 
     /**
-     *
      * @var type
      * @Groups({"blogpost"})
      */
     private $aliasId;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\ManyToOne(targetEntity="Status")
      * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
@@ -135,7 +131,6 @@ class BlogPost
     private $status;
 
     /**
-     *
      * @var type
      * @Groups({"blogpost"})
      */
@@ -152,9 +147,9 @@ class BlogPost
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -162,9 +157,10 @@ class BlogPost
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
+     *
      * @return BlogPost
      */
     public function setTitle($title)
@@ -175,7 +171,7 @@ class BlogPost
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -185,9 +181,10 @@ class BlogPost
     }
 
     /**
-     * Set subtitle
+     * Set subtitle.
      *
      * @param string $subtitle
+     *
      * @return BlogPost
      */
     public function setSubTitle($subtitle)
@@ -198,7 +195,7 @@ class BlogPost
     }
 
     /**
-     * Get subtitle
+     * Get subtitle.
      *
      * @return string
      */
@@ -208,9 +205,10 @@ class BlogPost
     }
 
     /**
-     * Set author
+     * Set author.
      *
      * @param string $author
+     *
      * @return BlogPost
      */
     public function setAuthor($author)
@@ -221,7 +219,7 @@ class BlogPost
     }
 
     /**
-     * Get author
+     * Get author.
      *
      * @return string
      */
@@ -231,9 +229,10 @@ class BlogPost
     }
 
     /**
-     * Set text
+     * Set text.
      *
      * @param string $text
+     *
      * @return BlogPost
      */
     public function setText($text)
@@ -244,7 +243,7 @@ class BlogPost
     }
 
     /**
-     * Get text
+     * Get text.
      *
      * @return string
      */
@@ -254,9 +253,10 @@ class BlogPost
     }
 
     /**
-     * Set date
+     * Set date.
      *
      * @param \DateTime $date
+     *
      * @return BlogPost
      */
     public function setDate($date)
@@ -267,7 +267,7 @@ class BlogPost
     }
 
     /**
-     * Get date
+     * Get date.
      *
      * @return \DateTime
      */
@@ -277,9 +277,10 @@ class BlogPost
     }
 
     /**
-     * Set tag
+     * Set tag.
      *
      * @param string tag
+     *
      * @return tag
      */
     public function setTag($tag)
@@ -290,7 +291,7 @@ class BlogPost
     }
 
     /**
-     * Get tag
+     * Get tag.
      *
      * @return tag
      */
@@ -300,9 +301,10 @@ class BlogPost
     }
 
     /**
-     * Set category
+     * Set category.
      *
      * @param string category
+     *
      * @return BlogPost
      */
     public function setCategory($category)
@@ -313,7 +315,7 @@ class BlogPost
     }
 
     /**
-     * Get category
+     * Get category.
      *
      * @return category
      */
@@ -323,7 +325,7 @@ class BlogPost
     }
 
     /**
-     * Get section
+     * Get section.
      *
      * @return Section
      */
@@ -333,9 +335,10 @@ class BlogPost
     }
 
     /**
-     * Set section
+     * Set section.
      *
-     * @param integer section
+     * @param int section
+     *
      * @return Section
      */
     public function setSection($section)
@@ -346,7 +349,7 @@ class BlogPost
     }
 
     /**
-     * Get language
+     * Get language.
      *
      * @return Language
      */
@@ -356,9 +359,10 @@ class BlogPost
     }
 
     /**
-     * Set language
+     * Set language.
      *
-     * @param integer language
+     * @param int language
+     *
      * @return Page's Language
      */
     public function setLanguage($language)
@@ -369,7 +373,7 @@ class BlogPost
     }
 
     /**
-     * Get alias
+     * Get alias.
      *
      * @return Alias
      */
@@ -379,9 +383,10 @@ class BlogPost
     }
 
     /**
-     * Set alias
+     * Set alias.
      *
-     * @param integer alias
+     * @param int alias
+     *
      * @return Page's Alias
      */
     public function setAlias($alias)
@@ -392,7 +397,7 @@ class BlogPost
     }
 
     /**
-     * Get status
+     * Get status.
      *
      * @return Status
      */
@@ -402,9 +407,10 @@ class BlogPost
     }
 
     /**
-     * Set status
+     * Set status.
      *
-     * @param integer status
+     * @param int status
+     *
      * @return Page's Status
      */
     public function setStatus($status)

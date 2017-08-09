@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * File
+ * File.
  *
  * @ORM\Table()
  * @ORM\Entity
@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class File
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -56,18 +56,17 @@ class File
     private $date;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="size", type="integer")
      * @Groups({"file"})
      */
     private $size;
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -75,9 +74,10 @@ class File
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
+     *
      * @return File
      */
     public function setName($name)
@@ -88,7 +88,7 @@ class File
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -98,9 +98,10 @@ class File
     }
 
     /**
-     * Set fileName
+     * Set fileName.
      *
      * @param string $fileName
+     *
      * @return File
      */
     public function setFileName($fileName)
@@ -111,7 +112,7 @@ class File
     }
 
     /**
-     * Get fileName
+     * Get fileName.
      *
      * @return string
      */
@@ -121,9 +122,10 @@ class File
     }
 
     /**
-     * Set type
+     * Set type.
      *
      * @param string $type
+     *
      * @return File
      */
     public function setType($type)
@@ -134,7 +136,7 @@ class File
     }
 
     /**
-     * Get type
+     * Get type.
      *
      * @return string
      */
@@ -144,9 +146,10 @@ class File
     }
 
     /**
-     * Set date
+     * Set date.
      *
      * @param \DateTime $date
+     *
      * @return File
      */
     public function setDate($date)
@@ -157,7 +160,7 @@ class File
     }
 
     /**
-     * Get date
+     * Get date.
      *
      * @return \DateTime
      */
@@ -167,9 +170,10 @@ class File
     }
 
     /**
-     * Set size
+     * Set size.
      *
-     * @param integer $size
+     * @param int $size
+     *
      * @return File
      */
     public function setSize($size)
@@ -180,9 +184,9 @@ class File
     }
 
     /**
-     * Get size
+     * Get size.
      *
-     * @return integer
+     * @return int
      */
     public function getSize()
     {

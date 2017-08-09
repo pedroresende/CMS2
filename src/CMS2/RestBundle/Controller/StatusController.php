@@ -5,27 +5,25 @@ namespace CMS2\RestBundle\Controller;
 use FOS\RestBundle\Controller\Annotations\Get;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use FOS\RestBundle\Controller\Annotations\Route;
 
 /**
- * Description of StatusController
+ * Description of StatusController.
  *
  * @author Pedro Resende <pedroresende@mail.resende.biz>
  * date 14/04/2017
  */
-class StatusController extends Controller {
-
+class StatusController extends Controller
+{
     /**
-     * Returns the available REST verbs
+     * Returns the available REST verbs.
      * 
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
-     * 
      */
-    public function optionsAction(): Response {
+    public function optionsAction(): Response
+    {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS');
@@ -34,7 +32,7 @@ class StatusController extends Controller {
     }
 
     /**
-     * Returns all the status, or the the only one with the given id
+     * Returns all the status, or the the only one with the given id.
      * 
      * @ApiDoc(
      *  description="Returns all the status, or the the only one with the given id",
@@ -50,8 +48,9 @@ class StatusController extends Controller {
      * )
      * @Get("/{id}")
      */
-    public function getAction($id): Response {
-        if ($id == "{id}") {
+    public function getAction($id): Response
+    {
+        if ($id == '{id}') {
             $status = $this->getDoctrine()->getRepository('CMS2BaseBundle:Status')->findAll();
         } else {
             $status = $this->getDoctrine()->getRepository('CMS2BaseBundle:Status')->find($id);
@@ -71,14 +70,15 @@ class StatusController extends Controller {
     }
 
     /**
-     * Returns the list of Status
+     * Returns the list of Status.
      * 
      * @ApiDoc(
      *  description="Returns the list of Status",
      * )
      * @Get("")
      */
-    public function getAllAction(): Response {
+    public function getAllAction(): Response
+    {
         $status = $this->getDoctrine()->getRepository('CMS2BaseBundle:Status')->findAll();
 
         $response = new Response();

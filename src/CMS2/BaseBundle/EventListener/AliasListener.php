@@ -10,7 +10,7 @@ use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\PreFlushEventArgs;
 
 /**
- * Description of AliasHelper
+ * Description of AliasHelper.
  *
  * @author pedroresende
  */
@@ -33,6 +33,7 @@ class AliasListener
 
     /**
      * @TODO think about the preFlush
+     *
      * @param PreFlushEventArgs $args
      */
     public function preFlush(PreFlushEventArgs $args)
@@ -62,7 +63,7 @@ class AliasListener
     }
 
     /**
-     * This method is responsible for adding a new Alias Element
+     * This method is responsible for adding a new Alias Element.
      *
      * @return $this
      */

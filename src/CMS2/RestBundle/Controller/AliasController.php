@@ -5,26 +5,25 @@ namespace CMS2\RestBundle\Controller;
 use FOS\RestBundle\Controller\Annotations\Get;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Description of AliasController
+ * Description of AliasController.
  *
  * @author Pedro Resende <pedroresende@mail.resende.biz>
  * date 14/04/2017
  */
-class AliasController extends Controller {
-
+class AliasController extends Controller
+{
     /**
-     * Returns the available REST verbs
+     * Returns the available REST verbs.
      * 
      * @ApiDoc(
      *  description="Returns the available REST verbs"
      * )
-     * 
      */
-    public function optionsAction(): Response {
+    public function optionsAction(): Response
+    {
         $response = new Response();
 
         $response->headers->set('Allow', 'GET, OPTIONS');
@@ -33,7 +32,7 @@ class AliasController extends Controller {
     }
 
     /**
-     * Returns a alias by Id
+     * Returns a alias by Id.
      * 
      * @ApiDoc(
      *  description="Returns a alias by Id",
@@ -49,7 +48,8 @@ class AliasController extends Controller {
      * )
      * @Get("/{id}")
      */
-    public function getAction($id): Response {
+    public function getAction($id): Response
+    {
         $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->find($id);
 
         $response = new Response();
@@ -66,7 +66,7 @@ class AliasController extends Controller {
     }
 
     /**
-     * Returns a alias by url
+     * Returns a alias by url.
      * 
      * @ApiDoc(
      *  description="Returns a alias by url",
@@ -81,7 +81,8 @@ class AliasController extends Controller {
      *  }
      * )
      */
-    public function getUrlAction($slug): Response {
+    public function getUrlAction($slug): Response
+    {
         $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->findOneByUrl($slug);
 
         $response = new Response();
@@ -98,14 +99,15 @@ class AliasController extends Controller {
     }
 
     /**
-     * Returns the list of Alias
+     * Returns the list of Alias.
      * 
      * @ApiDoc(
      *  description="Returns the list of Alias",
      * )
      * @Get("")
      */
-    public function getAllAction(): Response {
+    public function getAllAction(): Response
+    {
         $alias = $this->getDoctrine()->getRepository('CMS2BaseBundle:Alias')->findAll();
 
         $response = new Response();
@@ -120,5 +122,4 @@ class AliasController extends Controller {
 
         return $response;
     }
-
 }
