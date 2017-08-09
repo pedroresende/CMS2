@@ -1,6 +1,6 @@
 before_script:
   - docker-compose -f docker-compose-gitlab.yml build
-  - composer install
+  - docker-compose -f docker-compose-gitlab.yml run php composer install
 
 stages:
   - code_quality
