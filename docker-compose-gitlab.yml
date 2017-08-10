@@ -8,7 +8,6 @@ services:
       - db
     volumes:
       - ./:/symfony:cached
-      - ./logs:/var/log
   web:
     build: build/nginx
     ports:
@@ -18,7 +17,6 @@ services:
         - db
     volumes:
         - ./:/symfony:cached
-        - ./logs:/var/log/nginx
   db:
     image: mysql/mysql-server:latest
     environment:
