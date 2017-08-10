@@ -20,3 +20,5 @@
 /nbproject/
 /nbproject/private/
 tests/_output/*
+tests/_support/_generated/AcceptanceTesterActions.php
+app/config/client_secret.json
