@@ -1,7 +1,6 @@
 stages:
   - build
   - code_quality
-  - cleanup_code_quality
   - codeception_tests
   - cleanup_job
 
@@ -17,13 +16,6 @@ code_quality:
   script:
     - docker-compose -f docker-compose-gitlab.yml run php bin/phpcs src/ --standard=psr2 --extensions=php
 
-cleanup_code_quality:
-  stage: cleanup_code_quality
-  script:
-    - docker-compose -f docker-compose-gitlab.yml down
-    - sudo rm -rf
-  when: on_failure
-
 codeception_tests:
   stage: codeception_tests
   script:
@@ -37,5 +29,5 @@ cleanup_job:
   stage: cleanup_job
   script:
     - docker-compose -f docker-compose-gitlab.yml down
-    - sudo rm -rf
+    - sudo rm -rf *
   when: always
