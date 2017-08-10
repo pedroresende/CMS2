@@ -4,6 +4,7 @@ services:
     build: build/php
     expose:
       - '9000'
+      - '4444'
     depends_on:
       - db
     volumes:
