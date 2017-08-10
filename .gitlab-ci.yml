@@ -2,6 +2,7 @@ stages:
   - build
   - code_quality
   - codeception_tests
+  - cleanup_on_failure
   - cleanup_job
 
 build:
@@ -14,7 +15,7 @@ build:
 code_quality:
   stage: code_quality
   script:
-    - docker-compose -f docker-compose-gitlab.yml run php bin/phpcs src/ --standard=psr2 --extensions=php
+    - docker-compose -f docker-compose-gitlab.yml run php php vendor/squizlabs/php_codesniffer/bin/phpcs src/  --standard=psr2 --extensions=php
 
 codeception_tests:
   stage: codeception_tests
@@ -30,3 +31,10 @@ cleanup_job:
   script:
     - docker-compose -f docker-compose-gitlab.yml down
     - sudo rm -rf *
+
+cleanup_on_failure:
+  stage: cleanup_on_failure
+  script:
+    - docker-compose -f docker-compose-gitlab.yml down
+    - sudo rm -rf *
+  when: on_failure
