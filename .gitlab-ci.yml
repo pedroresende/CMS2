@@ -11,7 +11,6 @@ cache:
     - vendor/
     - var/cache/
     - var/logs/
-    - bin/
 
 build:
   stage: build
