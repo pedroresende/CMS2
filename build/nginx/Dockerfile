@@ -11,4 +11,9 @@ WORKDIR /symfony
 EXPOSE 80
 EXPOSE 443
 
+ARG APP_USER=www
+
+RUN useradd --user-group --create-home --shell /bin/false ${APP_USER}
+USER ${APP_USER}
+
 CMD ["nginx"]

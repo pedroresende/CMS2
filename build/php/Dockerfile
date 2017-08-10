@@ -33,6 +33,11 @@ RUN php -r "unlink('composer-setup.php');"
 RUN mv composer.phar /usr/local/bin/composer
 RUN chmod +x /usr/local/bin/composer
 
+ARG APP_USER=www
+
+RUN useradd --user-group --create-home --shell /bin/false ${APP_USER}
+USER ${APP_USER}
+
 WORKDIR /symfony
 
 EXPOSE 9000
