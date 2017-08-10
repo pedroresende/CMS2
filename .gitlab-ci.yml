@@ -28,6 +28,6 @@ codeception_tests:
 cleanup_job:
   stage: cleanup_job
   script:
+    - docker-compose -f docker-compose-gitlab.yml run php rm -rf *
     - docker-compose -f docker-compose-gitlab.yml down
-    - sudo rm -rf *
   when: always
