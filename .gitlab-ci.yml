@@ -6,11 +6,7 @@ stages:
   - cleanup_job
 
 cache:
-  paths:
-    - app/config/parameters.yml
-    - vendor/
-    - var/cache/
-    - var/logs/
+  untracked: true
 
 build:
   stage: build
