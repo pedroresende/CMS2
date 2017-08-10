@@ -6,7 +6,7 @@ stages:
   - cleanup_job
 
 build:
-  state: build
+  stage: build
   script:
     - docker-compose -f docker-compose-gitlab.yml build
     - cp app/config/parameters.yml.dist app/config/parameters.yml
@@ -18,9 +18,10 @@ code_quality:
     - docker-compose -f docker-compose-gitlab.yml run php bin/phpcs src/ --standard=psr2 --extensions=php
 
 cleanup_code_quality:
-  stage: cleanup_quality
+  stage: cleanup_code_quality
   script:
     - docker-compose -f docker-compose-gitlab.yml down
+    - sudo rm -rf
   when: on_failure
 
 codeception_tests:
