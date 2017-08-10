@@ -6,7 +6,7 @@ stages:
   - cleanup_job
 
 cache:
-  path:
+  paths:
     - vendor
     - web/vundles
     - var/cache
