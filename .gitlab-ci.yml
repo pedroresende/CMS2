@@ -11,11 +11,23 @@ build:
     - docker-compose -f docker-compose-gitlab.yml build
     - cp app/config/parameters.yml.dist app/config/parameters.yml
     - docker-compose -f docker-compose-gitlab.yml run php composer install
+  cache:
+    - app/config/parameters.yml
+    - vendor/
+    - var/cache/
+    - var/logs/
+    - bin/
 
 code_quality:
   stage: code_quality
   script:
     - docker-compose -f docker-compose-gitlab.yml run php php vendor/squizlabs/php_codesniffer/bin/phpcs src/  --standard=psr2 --extensions=php
+  cache:
+    - app/config/parameters.yml
+    - vendor/
+    - var/cache/
+    - var/logs/
+    - bin/
 
 codeception_tests:
   stage: codeception_tests
@@ -25,6 +37,12 @@ codeception_tests:
     - docker-compose -f docker-compose-gitlab.yml run php bin/console fos:user:create admin admin@admin.com admin
     - docker-compose -f docker-compose-gitlab.yml run php bin/console fos:user:promote admin ROLE_ADMIN
     - docker-compose -f docker-compose-gitlab.yml run php bin/codecept run --steps
+  cache:
+    - app/config/parameters.yml
+    - vendor/
+    - var/cache/
+    - var/logs/
+    - bin/
 
 cleanup_job:
   stage: cleanup_job
