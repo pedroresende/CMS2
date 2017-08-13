@@ -7,7 +7,11 @@
 
 $('#cache_clear').click(
     function () {
-        fetch('/app_dev.php/admin/clearcache')
+        fetch('/api/cache/',
+        {
+            method: "POST",
+        }
+        )
         .then(
             function (response) {
                 return response.text()

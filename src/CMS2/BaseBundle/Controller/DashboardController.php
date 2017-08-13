@@ -5,7 +5,6 @@ namespace CMS2\BaseBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Filesystem\Filesystem;
 
 /**
  * Description of DashboardController.
@@ -46,22 +45,5 @@ class DashboardController extends Controller
                 'ACCESS_TOKEN_FROM_SERVICE_ACCOUNT' => $accessToken,
             ]
         );
-    }
-
-    /**
-     * Controller responsible for clearing symfony's cache.
-     *
-     * @return Symfony\Component\HttpFoundation\Response
-     */
-    public function cacheClearAction(): Response
-    {
-        $fs = new Filesystem();
-        $fs->remove($this->container->getParameter('kernel.cache_dir'));
-
-        $response = new Response();
-        $response->setStatusCode(Response::HTTP_OK);
-        $response->setContent('Cache Cleared');
-
-        return $response;
     }
 }
